@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaotoday/koa.git"
+    "url": "git+https://github.com/zhaotoday/koa-mvc.git"
   },
   "keywords": [
     "koa",
@@ -17,14 +17,17 @@
   "author": "zhaojintian",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhaotoday/koa/issues"
+    "url": "https://github.com/zhaotoday/koa-mvc/issues"
   },
-  "homepage": "https://github.com/zhaotoday/koa#readme",
+  "homepage": "https://github.com/zhaotoday/koa-mvc#readme",
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1"
+  },
+  "dependencies": {
+    "koa": "^2.5.0"
   }
 }
