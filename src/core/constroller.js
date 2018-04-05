@@ -1,3 +1,7 @@
 module.exports = app => {
-  return class {}
+  return class {
+    constructor () {
+      this.service = null
+    }
+  }
 }

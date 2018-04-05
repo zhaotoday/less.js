@@ -10,7 +10,16 @@ const PAGE_SIZE = 10
 const PATHS = {
   MODELS: 'models',
   SERVICES: 'services',
-  CONTROLLERS: 'controllers'
+  CONTROLLERS: 'controllers',
+  VIEWS: 'views'
+}
+
+const VIEWS = {
+  root: path.join(__dirname, `../app/${PATHS.VIEWS}`),
+  layout: false,
+  viewExt: 'ejs',
+  cache: false,
+  debug: false
 }
 
 // 注册规则
@@ -26,7 +35,7 @@ const REGISTER_RULES = [{
 }]
 
 // MySQL 数据库配置
-const DB =  {
+const DB = {
   database: 'hzzww0n',
   username: 'hzzww0n_f',
   password: 'aaaaaa111111',
@@ -48,6 +57,7 @@ module.exports = {
   PORT,
   PAGE_SIZE,
   PATHS,
+  VIEWS,
   REGISTER_RULES,
   DB,
   REDIS

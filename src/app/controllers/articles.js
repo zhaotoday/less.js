@@ -1,13 +1,7 @@
 module.exports = app => {
   return class extends app.Controller {
-    constructor () {
-      super()
-      this.service = app.services.articles
-    }
-
     async index (ctx, next) {
-      const items = await app.services.articles.find({offset: 0, limit: 10})
-      ctx.response.body = items
+      ctx.response.body = await app.services.articles.find({offset: 0, limit: 10})
       // await ctx.render('articles')
     }
   }
