@@ -1,4 +1,4 @@
-项目名：基于 Koa.js 的 Node.js MVC 框架，git 仓库地址：https://github.com/zhaotoday/koa 。项目负责人：[@zhaotoday](https://github.com/zhaotoday) 。
+项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
 
 ## 1. 链接
 ### 1.1. 网站
