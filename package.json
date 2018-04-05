@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/zhaotoday/koa-mvc#readme",
   "devDependencies": {
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-node": "^6.0.1",
