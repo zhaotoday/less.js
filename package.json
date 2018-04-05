@@ -1,0 +1,30 @@
+{
+  "name": "koa-mvc-framework",
+  "version": "0.0.1",
+  "description": "a koa mvc framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaotoday/koa.git"
+  },
+  "keywords": [
+    "koa",
+    "mvc"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaotoday/koa/issues"
+  },
+  "homepage": "https://github.com/zhaotoday/koa#readme",
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
