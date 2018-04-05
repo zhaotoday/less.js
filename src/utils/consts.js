@@ -1,8 +1,5 @@
 const path = require('path')
 
-// 提交到 git 时，一些敏感配置信息不提交
-const secret = require('./secret')
-
 // 监听端口
 const PORT = 3000
 
@@ -29,7 +26,20 @@ const REGISTER_RULES = [{
 }]
 
 // MySQL 数据库配置
-const DB = secret.DB
+const DB =  {
+  database: 'hzzww0n',
+  username: 'hzzww0n_f',
+  password: 'aaaaaa111111',
+  options: {
+    host: 'wvort936.669.dnstoo.com',
+    port: 4024,
+    dialect: 'mysql',
+    define: {
+      underscored: true
+    },
+    operatorsAliases: false
+  }
+}
 
 // Redis 配置
 const REDIS = {}
