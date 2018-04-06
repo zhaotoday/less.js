@@ -14,6 +14,7 @@ const PATHS = {
   VIEWS: 'views'
 }
 
+// EJS 模板
 const VIEWS = {
   root: path.join(__dirname, `../app/${PATHS.VIEWS}`),
   layout: false,

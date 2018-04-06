@@ -11,6 +11,7 @@ module.exports = ({app, rules = []}) => {
   app.Service = require('../core/service')(app)
   app.Controller = require('../core/constroller')(app)
 
+  // 注册业务级 model、service、controller 到 app.models、app.services、app.controllers
   rules.forEach(rule => {
     const content = {}
 
