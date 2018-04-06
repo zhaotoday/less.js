@@ -1,5 +1,8 @@
 const path = require('path')
 
+// Node.js 工作目录
+const ROOT = process.cwd()
+
 // 监听端口
 const PORT = 3000
 
@@ -16,7 +19,7 @@ const PATHS = {
 
 // EJS 模板
 const VIEWS = {
-  root: path.join(__dirname, `../app/${PATHS.VIEWS}`),
+  root: path.resolve(ROOT, `src/app/${PATHS.VIEWS}`),
   layout: false,
   viewExt: 'ejs',
   cache: false,
@@ -26,13 +29,13 @@ const VIEWS = {
 // 注册规则
 const REGISTER_RULES = [{
   name: PATHS.MODELS,
-  path: path.join(__dirname, `../app/${PATHS.MODELS}`)
+  path: path.resolve(ROOT, `src/app/${PATHS.MODELS}`)
 }, {
   name: PATHS.SERVICES,
-  path: path.join(__dirname, `../app/${PATHS.SERVICES}`)
+  path: path.resolve(ROOT, `src/app/${PATHS.SERVICES}`)
 }, {
   name: PATHS.CONTROLLERS,
-  path: path.join(__dirname, `../app/${PATHS.CONTROLLERS}`)
+  path: path.resolve(ROOT, `src/app/${PATHS.CONTROLLERS}`)
 }]
 
 // MySQL 数据库配置
@@ -54,12 +57,17 @@ const DB = {
 // Redis 配置
 const REDIS = {}
 
+// 静态资源目录
+const STATIC_PATH = path.resolve(ROOT, 'src/public')
+
 module.exports = {
+  ROOT,
   PORT,
   PAGE_SIZE,
   PATHS,
   VIEWS,
   REGISTER_RULES,
   DB,
-  REDIS
+  REDIS,
+  STATIC_PATH
 }
