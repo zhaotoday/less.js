@@ -10,7 +10,7 @@ const PORT = 3000
 const PAGE_SIZE = 10
 
 // 目录
-const PATHS = {
+const DIRS = {
   MODELS: 'models',
   SERVICES: 'services',
   CONTROLLERS: 'controllers',
@@ -19,7 +19,7 @@ const PATHS = {
 
 // EJS 模板
 const VIEWS = {
-  root: path.resolve(ROOT, `src/app/${PATHS.VIEWS}`),
+  root: path.resolve(ROOT, `src/app/${DIRS.VIEWS}`),
   layout: false,
   viewExt: 'ejs',
   cache: false,
@@ -28,14 +28,14 @@ const VIEWS = {
 
 // 注册规则
 const REGISTER_RULES = [{
-  name: PATHS.MODELS,
-  path: path.resolve(ROOT, `src/app/${PATHS.MODELS}`)
+  name: DIRS.MODELS,
+  dir: path.resolve(ROOT, `src/app/${DIRS.MODELS}`)
 }, {
-  name: PATHS.SERVICES,
-  path: path.resolve(ROOT, `src/app/${PATHS.SERVICES}`)
+  name: DIRS.SERVICES,
+  dir: path.resolve(ROOT, `src/app/${DIRS.SERVICES}`)
 }, {
-  name: PATHS.CONTROLLERS,
-  path: path.resolve(ROOT, `src/app/${PATHS.CONTROLLERS}`)
+  name: DIRS.CONTROLLERS,
+  dir: path.resolve(ROOT, `src/app/${DIRS.CONTROLLERS}`)
 }]
 
 // MySQL 数据库配置
@@ -58,16 +58,16 @@ const DB = {
 const REDIS = {}
 
 // 静态资源目录
-const STATIC_PATH = path.resolve(ROOT, 'src/public')
+const STATIC_DIR = path.resolve(ROOT, 'src/public')
 
 module.exports = {
   ROOT,
   PORT,
   PAGE_SIZE,
-  PATHS,
+  DIRS,
   VIEWS,
   REGISTER_RULES,
   DB,
   REDIS,
-  STATIC_PATH
+  STATIC_DIR
 }

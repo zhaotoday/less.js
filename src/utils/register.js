@@ -3,6 +3,26 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = ({app, rules = []}) => {
+  function recurrence (rule, dir) {
+    const target = {}
+
+    fs.readdirSync(dir).forEach(file => {
+      const extname = path.extname(file)
+      const basename = path.basename(file, extname)
+
+      if (extname === '.js') {
+        // model 是一个类的实例，与 Service、Controller 分开处理
+        target[basename] = rule.name === consts.DIRS.MODELS
+          ? require(path.join(dir, file))(app)
+          : new (require(path.join(dir, file))(app))()
+      } else {
+        target[basename] = recurrence(rule, path.join(dir, file))
+      }
+    })
+
+    return target
+  }
+
   // 注册 Sequelize 实例 model 到 app
   app.model = require('../core/model')(app)
   app.model.columns = require('./columns')
@@ -13,21 +33,6 @@ module.exports = ({app, rules = []}) => {
 
   // 注册业务级 model、service、controller 到 app.models、app.services、app.controllers
   rules.forEach(rule => {
-    const content = {}
-
-    fs.readdirSync(rule.path).forEach(fileName => {
-      const extname = path.extname(fileName)
-
-      if (extname === '.js') {
-        const basename = path.basename(fileName, extname)
-
-        // model 是一个类的实例，与 Service、Controller 分开处理
-        content[basename] = rule.name === consts.PATHS.MODELS
-          ? require(path.join(rule.path, fileName))(app)
-          : new (require(path.join(rule.path, fileName))(app))()
-      }
-    })
-
-    app[rule.name] = content
+    app[rule.name] = recurrence(rule, rule.dir)
   })
 }
