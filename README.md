@@ -1,4 +1,4 @@
-项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
+项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa-mvc-framework 。负责人：[赵金添](https://github.com/zhaotoday) 。
 
 ## 1. 运行
 
@@ -18,11 +18,11 @@ $ npm run eslint
 # 开发
 $ npm run dev
 
-# 停止
-$ npm run stop
-
-# 启动
+# 启动项目
 $ npm start
+
+# 停止项目
+$ npm run stop
 ```
 
 ## 2. 规范
@@ -134,7 +134,7 @@ src/app/views/articles.ejs
 
 #### 2.3.5. API
 
-src/app/controllers/apis/articles.js
+src/app/controllers/apis/v1/articles.js
 
 ```js
 module.exports = app => {
