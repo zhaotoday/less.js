@@ -56,7 +56,7 @@ $ npm start
 
 ### 2.2. 示例
 
-### 2.2.1. 模型
+#### 2.2.1. 模型
 
 src/app/models/articles.js
 
@@ -78,7 +78,7 @@ module.exports = app => {
 }
 ```
 
-### 2.2.2. 服务
+#### 2.2.2. 服务
 
 src/app/services/articles.js
 
@@ -94,7 +94,7 @@ module.exports = app => {
 }
 ```
 
-### 2.2.3. 控制器
+#### 2.2.3. 控制器
 
 src/app/controllers/articles.js
 
@@ -112,7 +112,7 @@ module.exports = app => {
 }
 ```
 
-### 2.2.4. 视图
+#### 2.2.4. 视图
 
 src/app/views/articles.ejs
 
@@ -120,7 +120,7 @@ src/app/views/articles.ejs
 <%- JSON.stringify(items) %>
 ```
 
-### 2.2.5. API
+#### 2.2.5. API
 
 src/app/controllers/apis/articles.js
 
@@ -139,7 +139,7 @@ module.exports = app => {
 }
 ```
 
-### 2.2.6. 路由
+#### 2.2.6. 路由
 
 src/router/routes/articles.js
 
