@@ -31,9 +31,12 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "dependencies": {
+    "class-autobind": "^0.1.4",
+    "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-ejs": "^4.1.1",
+    "koa-jwt": "^3.3.1",
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
     "mysql": "^2.15.0",

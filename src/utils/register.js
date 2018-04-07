@@ -23,6 +23,9 @@ module.exports = ({app, rules = []}) => {
     return target
   }
 
+  // 注册 helpers 到 app
+  app.helpers = require('./helpers')(app)
+
   // 注册 Sequelize 实例 model 到 app
   app.model = require('../core/model')(app)
   app.model.columns = require('./columns')

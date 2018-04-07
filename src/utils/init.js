@@ -1,4 +1,4 @@
-const consts = require('../utils/consts')
+const consts = require('./consts')
 
 module.exports = async app => {
   // 注册对象到 app

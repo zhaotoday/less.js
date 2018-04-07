@@ -1,10 +1,10 @@
 module.exports = app => {
-  return async (ctx, next) => {
-    ctx.response.send = json => {
-      ctx.response.set('Content-Type', 'application/json')
-      ctx.response.body = JSON.stringify(json)
+  app.use(async (ctx, next) => {
+    ctx.response.send = ({status = 200, error = null, data = null} = {}) => {
+      ctx.response.status = status
+      ctx.response.body = {error, data}
     }
 
     await next()
-  }
+  })
 }

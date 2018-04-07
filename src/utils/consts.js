@@ -60,6 +60,12 @@ const REDIS = {}
 // 静态资源目录
 const STATIC_DIR = path.resolve(ROOT, 'src/public')
 
+// JWT 配置
+const JWT = {
+  secret: 'jwt_secret',
+  expiresIn: '5h'
+}
+
 module.exports = {
   ROOT,
   PORT,
@@ -69,5 +75,6 @@ module.exports = {
   REGISTER_RULES,
   DB,
   REDIS,
-  STATIC_DIR
+  STATIC_DIR,
+  JWT
 }
