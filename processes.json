@@ -10,10 +10,7 @@
         "node_modules",
         "logs"
       ],
-      "env_dev": {
-        "NODE_ENV": "development"
-      },
-      "env_prod": {
+      "env_production": {
         "NODE_ENV": "production"
       }
     }

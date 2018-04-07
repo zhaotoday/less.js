@@ -29,7 +29,6 @@
 - [nginx反向代理原理和配置讲解](http://www.cnblogs.com/anruy/p/4989161.html)
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
-- [PM2实用入门指南](https://www.chyingp.com/pm2-guide/)
 
 ### 1.3. 安全  
 

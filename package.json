@@ -4,8 +4,8 @@
   "description": "a koa mvc framework",
   "main": "src/index.js",
   "scripts": {
-    "dev": "pm2 start processes.json --env dev",
-    "start": "pm2 start processes.json --env prod",
+    "dev": "nodemon src/index.js --debug",
+    "start": "pm2 start processes.json --env production",
     "stop": "pm2 stop koa-mvc",
     "eslintfix": "eslint src/**/*.js --fix",
     "eslint": "eslint src/**/*.js"
