@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "koa-mvc",
+      "script": "./src/index.js",
+      "watch": [
+        "src"
+      ],
+      "ignore_watch": [
+        "node_modules",
+        "logs"
+      ],
+      "env_dev": {
+        "NODE_ENV": "development"
+      },
+      "env_prod": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

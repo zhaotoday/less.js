@@ -14,6 +14,7 @@
 - [EJS 官网中文版](https://ejs.bootcss.com/)
 - [EJS 中文文档](https://segmentfault.com/a/1190000004286562)
 - [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
+- [PM2 官网](http://pm2.keymetrics.io)
 
 ### 1.2. 文章
 
@@ -27,6 +28,8 @@
 - [Sequelize 和 MySQL 对照](https://segmentfault.com/a/1190000003987871#articleHeader11)
 - [nginx反向代理原理和配置讲解](http://www.cnblogs.com/anruy/p/4989161.html)
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
+- [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
+- [PM2实用入门指南](https://www.chyingp.com/pm2-guide/)
 
 ### 1.3. 安全  
 

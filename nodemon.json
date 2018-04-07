@@ -8,15 +8,12 @@
   "execMap": {
     "js": "node --harmony"
   },
-  "events": {
-    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
-  },
+  "events": {},
   "watch": [
-    "test/fixtures/",
-    "test/samples/"
+    "src/"
   ],
   "env": {
     "NODE_ENV": "development"
   },
-  "ext": "js,json"
+  "ext": "js,ejs,json"
 }
