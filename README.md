@@ -58,26 +58,13 @@ $ npm start
 
 为了提高开发效率，这里人为的将一些自定义对象挂载到 app 下，用 $ 前缀命名，与 Koa.js 内置对象做区分。
 
-- app.$helpers
-> 辅助函数
-
-- app.$model
-> 公用模型对象
-
-- app.$Service
-> 服务基类
-
-- app.$Controller
-> 控制器基类
-
-- app.$models
-> 模型集合
-
-- app.$services
-> 服务集合
-
-- app.$controllers
-> 控制器集合
+- app.$helpers：辅助函数
+- app.$model：公用模型对象
+- app.$Service：服务基类
+- app.$Controller：控制器基类
+- app.$models：模型集合
+- app.$services：服务集合
+- app.$controllers：控制器集合
 
 ### 2.3. 示例
 
