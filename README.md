@@ -25,7 +25,9 @@ $ npm run stop
 $ npm start
 ```
 
-## 2. 目录结构
+## 2. 规范
+
+### 2.1. 目录结构
 
 ```
 ├─ src                     源码
@@ -34,24 +36,122 @@ $ npm start
 │  │  ├─ models            模型  ：用于定义数据模型
 │  │  ├─ services          服务  ：用于编写业务逻辑层，比如连接数据库，调用第三方接口等
 │  │  └─ views             视图  ：用于放置模板文件，返回客户端的视图层
+│  │
 │  ├─ core                 核心代码
 │  │  ├─ controller.js     控制器基类
 │  │  ├─ model.js          模型基类
 │  │  └─ service.js        服务基类
+│  │
 │  ├─ middlewares          中间件
 │  ├─ public               静态资源
 │  ├─ router               URL 路由
 │  ├─ utils                工具库
 │  └─ index.js             入口：用于自定义启动时的初始化工作，比如启动 https，调用中间件、路由等
-├─ .eslintrc               ESLint 配置文件
+│  
+├─ .eslintrc               eslint 配置文件
 ├─ nodemon.json            nodemon 配置文件
 ├─ package.json            npm 配置文件
 ├─ processes.json          pm2 配置文件
 ```
 
-## 1. 参考
+### 2.2. 示例
 
-### 1.1. 文档
+### 2.2.1. 模型
+
+src/app/models/articles.js
+
+```js
+module.exports = app => {
+  const {ID, SHORT_RELATED_ID, NAME, TITLE, SUBTITLE, DESCRIPTION, CONTENT, PICTURES, ORDER} = app.$model.columns
+
+  return app.$model.define('articles', {
+    id: ID,
+    category_id: SHORT_RELATED_ID,
+    author: NAME,
+    title: TITLE,
+    subtitle: SUBTITLE,
+    description: DESCRIPTION,
+    content: CONTENT,
+    pictures: PICTURES,
+    order: ORDER
+  })
+}
+```
+
+### 2.2.2. 服务
+
+src/app/services/articles.js
+
+```js
+module.exports = app => {
+  return class extends app.$Service {
+    constructor () {
+      super()
+
+      this.model = app.$models.articles
+    }
+  }
+}
+```
+
+### 2.2.3. 控制器
+
+src/app/controllers/articles.js
+
+```js
+module.exports = app => {
+  const service = app.$services.articles
+
+  return class extends app.$Controller {
+    async index (ctx, next) {
+      await ctx.render('articles', {
+        items: await service.find({offset: 0, limit: 10})
+      })
+    }
+  }
+}
+```
+
+### 2.2.4. 视图
+
+src/app/views/articles.ejs
+
+```ejs
+<%- JSON.stringify(items) %>
+```
+
+### 2.2.5. API
+
+src/app/controllers/apis/articles.js
+
+```js
+module.exports = app => {
+  const service = app.$services.articles
+
+  return class extends app.$Controller {
+    async index (ctx, next) {
+      ctx.response.body = ctx.send({
+        status: 200,
+        data: await service.find({offset: 0, limit: 10})
+      })
+    }
+  }
+}
+```
+
+### 2.2.6. 路由
+
+src/router/routes/articles.js
+
+```js
+module.exports = (app, router) => {
+  router.get('/articles', app.$controllers.articles.index)
+}
+```
+
+## 3. 参考
+
+### 3.1. 文档
 
 - [Koa 官网](http://koajs.com)
 - [koa 中文网](http://www.koacn.com/)
@@ -65,7 +165,7 @@ $ npm start
 - [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 - [PM2 官网](http://pm2.keymetrics.io)
 
-### 1.2. 文章
+### 3.2. 文章
 
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
 - [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/)
@@ -79,7 +179,7 @@ $ npm start
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
-### 1.3. 安全  
+### 3.3. 安全  
 
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
 - [Web安全系列——XSS攻击](https://qiuzhenyuan.github.io/2017/11/11/Web安全系列——XSS攻击/)
