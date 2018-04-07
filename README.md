@@ -1,6 +1,6 @@
 项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
 
-## 1. 链接
+## 1. 参考
 
 ### 1.1. 文档
 
@@ -43,7 +43,7 @@
 ### 2.1. Node 版本
 Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
 
-### 2.2 命令
+### 2.2. 命令
 ```bash
 # 安装依赖
 $ npm install
