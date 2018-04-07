@@ -1,11 +1,17 @@
 项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
 
 ## 1. 链接
-### 1.1. 网站
+### 1.1. 文档
 - [Koa 官网](http://koajs.com)
 - [koa 中文网](http://www.koacn.com/)
 - [Koa 文档的中文版本](https://github.com/demopark/koa-docs-Zh-CN)
 - [Node Koa2 实战](https://github.com/ikcamp/koa2-tutorial)
+- [Sequelize 文档](http://docs.sequelizejs.com)
+- [Sequelize 文档的中文版本](https://github.com/demopark/sequelize-docs-Zh-CN)
+- [EJS 官网](http://ejs.co/)
+- [EJS 官网中文版](https://ejs.bootcss.com/)
+- [EJS 中文文档](https://segmentfault.com/a/1190000004286562)
+- [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 
 ### 1.2. 文章
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
@@ -13,6 +19,11 @@
 - [Koa2 之文件上传下载](https://github.com/lin-xin/blog/issues/25)
 - [React 服务端渲染与同构](http://blog.pspgbhu.me/article/react-isomorphic)
 - [koa 实现 jwt 认证](https://github.com/superman66/koa-jwt-sample)
+- [PM2实用入门指南](http://imweb.io/topic/57c8cbb27f226f687b365636) 
+- [Node.js使用Sequelize操作MySQL](http://www.w3clog.com/21.html)
+- [Sequelize 和 MySQL 对照](https://segmentfault.com/a/1190000003987871#articleHeader11)
+- [nginx反向代理原理和配置讲解](http://www.cnblogs.com/anruy/p/4989161.html)
+- [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 
 ### 1.3. 安全  
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
