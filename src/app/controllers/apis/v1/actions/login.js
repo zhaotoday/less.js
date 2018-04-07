@@ -3,13 +3,9 @@ module.exports = app => {
     testSign (ctx) {
       const user = {id: 1, name: 'zhao'}
 
-      ctx.response.send({
+      ctx.send({
         status: 200,
-        data: {
-          user,
-          // 生成 token 返回给客户端
-          token: this.sign(user)
-        }
+        data: {user, token: this.sign(user)}
       })
     }
 

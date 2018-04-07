@@ -8,10 +8,20 @@ module.exports = app => {
       this.service = null
     }
 
+    /**
+     * 签名
+     * @param {Object} data 数据
+     * @returns {string}
+     */
     sign (data) {
       return jwt.sign({data}, consts.JWT.secret, {expiresIn: consts.JWT.expiresIn})
     }
 
+    /**
+     * 校验
+     * @param {Object} ctx 上下文
+     * @returns {Promise}
+     */
     verify (ctx) {
       return new Promise((resolve, reject) => {
         try {

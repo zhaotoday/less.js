@@ -6,7 +6,6 @@
 - [koa 中文网](http://www.koacn.com/)
 - [Koa 文档的中文版本](https://github.com/demopark/koa-docs-Zh-CN)
 - [Node Koa2 实战](https://github.com/ikcamp/koa2-tutorial)
-- [一起学koa](http://17koa.com/koa-generator-examples/)
 
 ### 1.2. 文章
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
@@ -15,9 +14,11 @@
 - [React 服务端渲染与同构](http://blog.pspgbhu.me/article/react-isomorphic)
 - [koa 实现 jwt 认证](https://github.com/superman66/koa-jwt-sample)
 
-### 1.3. 参考
-- [koa-generator](https://github.com/17koa/koa-generator)
-
-### 1.4. 相关包
-- [xss](https://github.com/leizongmin/js-xss)
-- [csrf](https://github.com/pillarjs/csrf)
+### 1.3. 安全  
+- [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
+- [Web安全系列——XSS攻击](https://qiuzhenyuan.github.io/2017/11/11/Web安全系列——XSS攻击/)
+- [如何让前端更安全？——XSS攻击和防御详解](https://mp.weixin.qq.com/s/6ChuUdOm7vej8vQ3dbC8fw)
+- [程序猿必读-防范CSRF跨站请求伪造](https://github.com/mylxsw/growing-up/blob/master/doc/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E5%BF%85%E8%AF%BB-%E9%98%B2%E8%8C%83CSRF%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0.md)
+- [web安全之SQL注入](https://www.imooc.com/learn/883)
+- [Web安全-XSS](https://www.imooc.com/learn/812)
+- [根据白名单过滤 HTML(防止 XSS 攻击)](https://github.com/leizongmin/js-xss/blob/master/README.zh.md)
