@@ -1,5 +1,54 @@
 项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
 
+## 1. 运行
+
+### 1.1. Node 版本
+Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
+
+### 1.2. 命令
+
+```bash
+# 安装依赖
+$ npm install
+
+# JS 代码校验
+$ npm run eslintfix
+$ npm run eslint
+
+# 开发
+$ npm run dev
+
+# 停止
+$ npm run stop
+
+# 启动
+$ npm start
+```
+
+## 2. 目录结构
+
+```
+├─ src                     源码
+│  ├─ app                  业务代码
+│  │  ├─ controllers       控制器：用于解析用户输入，处理后返回相应的结果
+│  │  ├─ models            模型  ：用于定义数据模型
+│  │  ├─ services          服务  ：用于编写业务逻辑层，比如连接数据库，调用第三方接口等
+│  │  └─ views             视图  ：用于放置模板文件，返回客户端的视图层
+│  ├─ core                 核心代码
+│  │  ├─ controller.js     控制器基类
+│  │  ├─ model.js          模型基类
+│  │  └─ service.js        服务基类
+│  ├─ middlewares          中间件
+│  ├─ public               静态资源
+│  ├─ router               URL 路由
+│  ├─ utils                工具库
+│  └─ index.js             入口：用于自定义启动时的初始化工作，比如启动 https，调用中间件、路由等
+├─ .eslintrc               ESLint 配置文件
+├─ nodemon.json            nodemon 配置文件
+├─ package.json            npm 配置文件
+├─ processes.json          pm2 配置文件
+```
+
 ## 1. 参考
 
 ### 1.1. 文档
@@ -39,21 +88,3 @@
 - [web安全之SQL注入](https://www.imooc.com/learn/883)
 - [Web安全-XSS](https://www.imooc.com/learn/812)
 - [根据白名单过滤 HTML(防止 XSS 攻击)](https://github.com/leizongmin/js-xss/blob/master/README.zh.md)
-
-## 2. 运行
-
-### 2.1. Node 版本
-Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
-
-### 2.2. 命令
-```bash
-# 安装依赖
-$ npm install
-
-# JS 代码校验
-$ npm run eslintfix
-$ npm run eslint
-
-# 启动
-$ npm start
-```
