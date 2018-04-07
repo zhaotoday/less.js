@@ -54,9 +54,34 @@ $ npm start
 ├─ processes.json          pm2 配置文件
 ```
 
-### 2.2. 示例
+### 2.2. 自定义挂载对象
 
-#### 2.2.1. 模型
+为了提高开发效率，这里人为的将一些自定义对象挂载到 app 下，用 $ 前缀命名，与 Koa.js 内置对象做区分。
+
+- app.$helpers
+> 辅助函数
+
+- app.$model
+> 公用模型对象
+
+- app.$Service
+> 服务基类
+
+- app.$Controller
+> 控制器基类
+
+- app.$models
+> 模型集合
+
+- app.$services
+> 服务集合
+
+- app.$controllers
+> 控制器集合
+
+### 2.3. 示例
+
+#### 2.3.1. 模型
 
 src/app/models/articles.js
 
@@ -78,7 +103,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.2.2. 服务
+#### 2.3.2. 服务
 
 src/app/services/articles.js
 
@@ -94,7 +119,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.2.3. 控制器
+#### 2.3.3. 控制器
 
 src/app/controllers/articles.js
 
@@ -112,7 +137,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.2.4. 视图
+#### 2.3.4. 视图
 
 src/app/views/articles.ejs
 
@@ -120,7 +145,7 @@ src/app/views/articles.ejs
 <%- JSON.stringify(items) %>
 ```
 
-#### 2.2.5. API
+#### 2.3.5. API
 
 src/app/controllers/apis/articles.js
 
@@ -139,7 +164,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.2.6. 路由
+#### 2.3.6. 路由
 
 src/router/routes/articles.js
 
