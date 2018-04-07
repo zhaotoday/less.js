@@ -1,7 +1,9 @@
 项目名：基于 Koa.js 的 Node.js MVC 框架，仓库地址：https://github.com/zhaotoday/koa 。负责人：[@zhaotoday](https://github.com/zhaotoday) 。
 
 ## 1. 链接
+
 ### 1.1. 文档
+
 - [Koa 官网](http://koajs.com)
 - [koa 中文网](http://www.koacn.com/)
 - [Koa 文档的中文版本](https://github.com/demopark/koa-docs-Zh-CN)
@@ -14,6 +16,7 @@
 - [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 
 ### 1.2. 文章
+
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
 - [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/)
 - [Koa2 之文件上传下载](https://github.com/lin-xin/blog/issues/25)
@@ -26,6 +29,7 @@
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 
 ### 1.3. 安全  
+
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
 - [Web安全系列——XSS攻击](https://qiuzhenyuan.github.io/2017/11/11/Web安全系列——XSS攻击/)
 - [如何让前端更安全？——XSS攻击和防御详解](https://mp.weixin.qq.com/s/6ChuUdOm7vej8vQ3dbC8fw)
@@ -33,3 +37,21 @@
 - [web安全之SQL注入](https://www.imooc.com/learn/883)
 - [Web安全-XSS](https://www.imooc.com/learn/812)
 - [根据白名单过滤 HTML(防止 XSS 攻击)](https://github.com/leizongmin/js-xss/blob/master/README.zh.md)
+
+## 2. 运行
+
+### 2.1. Node 版本
+Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
+
+### 2.2 命令
+```bash
+# 安装依赖
+$ npm install
+
+# JS 代码校验
+$ npm run eslintfix
+$ npm run eslint
+
+# 启动
+$ npm start
+```
