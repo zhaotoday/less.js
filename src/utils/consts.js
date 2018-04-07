@@ -66,6 +66,12 @@ const JWT = {
   expiresIn: '5h'
 }
 
+const CORS = {
+  origin: '*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  allowHeaders: 'Content-Type,Authorization'
+}
+
 module.exports = {
   ROOT,
   PORT,
@@ -76,5 +82,6 @@ module.exports = {
   DB,
   REDIS,
   STATIC_DIR,
-  JWT
+  JWT,
+  CORS
 }

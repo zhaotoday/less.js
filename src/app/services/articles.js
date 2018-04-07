@@ -1,9 +1,9 @@
 module.exports = app => {
-  return class extends app.Service {
+  return class extends app.$Service {
     constructor () {
       super()
 
-      this.model = app.models.articles
+      this.model = app.$models.articles
     }
   }
 }

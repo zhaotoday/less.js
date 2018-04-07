@@ -24,18 +24,18 @@ module.exports = ({app, rules = []}) => {
   }
 
   // 注册 helpers 到 app
-  app.helpers = require('./helpers')(app)
+  app.$helpers = require('./helpers')(app)
 
   // 注册 Sequelize 实例 model 到 app
-  app.model = require('../core/model')(app)
-  app.model.columns = require('./columns')
+  app.$model = require('../core/model')(app)
+  app.$model.columns = require('./columns')
 
   // 注册基类 Service、Controller 到 app
-  app.Service = require('../core/service')(app)
-  app.Controller = require('../core/constroller')(app)
+  app.$Service = require('../core/service')(app)
+  app.$Controller = require('../core/constroller')(app)
 
-  // 注册业务级 model、service、controller 到 app.models、app.services、app.controllers
+  // 注册业务级 model、service、controller 到 app.$models、app.$services、app.$controllers
   rules.forEach(rule => {
-    app[rule.name] = recurrence(rule, rule.dir)
+    app[`$${rule.name}`] = recurrence(rule, rule.dir)
   })
 }
