@@ -3,7 +3,7 @@ module.exports = (router, path, controller) => {
 
   methods.forEach(value => {
     if (controller[value]) {
-      router.get(`${path}/:id?`, controller[value])
+      router[value](`${path}/:id?`, controller[value])
     }
   })
 }

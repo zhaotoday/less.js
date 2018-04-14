@@ -4,7 +4,7 @@ const path = require('path')
 const ROOT = process.cwd()
 
 // 监听端口
-const PORT = 3000
+const PORT = 3002
 
 // 分页大小
 const PAGE_SIZE = 10
@@ -68,7 +68,7 @@ const JWT = {
 
 const CORS = {
   origin: '*',
-  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  allowMethods: 'OPTIONS,HEAD,GET,POST,PUT,PATCH,DELETE',
   allowHeaders: 'Content-Type,Authorization'
 }
 

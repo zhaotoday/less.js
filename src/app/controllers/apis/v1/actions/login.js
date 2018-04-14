@@ -1,6 +1,6 @@
 module.exports = app => {
   return class extends app.$Controller {
-    testSign (ctx) {
+    post (ctx) {
       const user = {id: 1, name: 'zhao'}
 
       ctx.send({
@@ -9,11 +9,16 @@ module.exports = app => {
       })
     }
 
-    async testVerify (ctx, next) {
+    async verify (ctx) {
       try {
-        await this.verify(ctx)
+        ctx.send({
+          data: await this.verify(ctx)
+        })
       } catch (err) {
-        ctx.response.body = err
+        ctx.send({
+          status: 404,
+          error: err
+        })
       }
     }
   }
