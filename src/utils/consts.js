@@ -66,9 +66,10 @@ const JWT = {
   expiresIn: '5h'
 }
 
+// CORS 跨域配置
 const CORS = {
   origin: '*',
-  allowMethods: 'OPTIONS,HEAD,GET,POST,PUT,PATCH,DELETE',
+  allowMethods: 'HEAD,GET,POST,PUT,PATCH,DELETE',
   allowHeaders: 'Content-Type,Authorization'
 }
 

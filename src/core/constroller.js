@@ -74,7 +74,6 @@ module.exports = app => {
      * @private
      */
     async _post (ctx) {
-      console.log(111, ctx.request.body)
       ctx.send({
         status: 201,
         data: await this.service.create({body: ctx.request.body})
