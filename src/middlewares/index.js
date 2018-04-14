@@ -1,10 +1,8 @@
-const consts = require('../utils/consts')
-
 module.exports = app => {
+  // cors 一定要在 jwt 之前，否则 options 请求返回 401
+  require('./cors')(app)
   require('./send')(app)
   require('./jwt')(app)
-
-  app.use(require('@koa/cors')(consts.CORS))
-  app.use(require('koa-static')(consts.STATIC_DIR))
-  app.use(require('koa-bodyparser')())
+  require('./static')(app)
+  require('./bodyparser')(app)
 }

@@ -1,4 +1,5 @@
-var jwt = require('koa-jwt')
+const jwt = require('koa-jwt')
+const consts = require('../utils/consts')
 
 module.exports = app => {
   app.use((ctx, next) => {
@@ -17,7 +18,7 @@ module.exports = app => {
     })
   })
 
-  app.use(jwt({secret: 'shared-secret'}).unless({
+  app.use(jwt({secret: consts.JWT.secret}).unless({
     path: [
       /^\/$/,
       /^\/articles/,
