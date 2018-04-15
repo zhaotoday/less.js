@@ -29,9 +29,12 @@ module.exports = ({app, rules = []}) => {
   // 挂载 resources 到 app
   app.$resources = require('./resources')
 
+  // 挂载 Sequelize 到 app
+  app.$Sequelize = require('sequelize')
+
   // 挂载 Sequelize 实例 model 到 app
   app.$model = require('../core/model')(app)
-  app.$model.columns = require('./columns')
+  app.$model.columns = require('./columns')(app)
 
   // 挂载基类 Service、Controller 到 app
   app.$Service = require('../core/service')(app)

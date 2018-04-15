@@ -2,7 +2,7 @@ module.exports = app => {
   const {STRING} = app.$Sequelize
   const {ID, TITLE, MODULE} = app.$model.columns
 
-  return app.model.define('files', {
+  return app.$model.define('files', {
     id: ID,
     title: TITLE,
     type: {

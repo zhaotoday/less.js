@@ -1,23 +1,33 @@
+const bcrypt = require('bcryptjs')
+
 module.exports = app => {
+  const service = app.$services.managers
+
   return class extends app.$Controller {
-    post (ctx) {
-      const user = {id: 1, name: 'zhao'}
-
-      ctx.send({
-        status: 200,
-        data: {user, token: this.sign(user)}
+    /**
+     * 登陆
+     * @returns {Promise}
+     */
+    async post (ctx) {
+      const {username, password} = ctx.request.body
+      const res = await service.find({
+        attributes: ['id', 'username', 'password'],
+        where: {username}
       })
-    }
 
-    async verify (ctx) {
-      try {
+      if (res.length && bcrypt.compareSync(password, res[0].password)) {
+        const manager = {id: res[0].id, username}
+
         ctx.send({
-          data: await this.verify(ctx)
+          data: {manager, token: this.sign(manager)}
         })
-      } catch (err) {
+      } else {
         ctx.send({
           status: 404,
-          error: err
+          error: {
+            code: 'MANAGERS/DATA_NOT_FOUND',
+            message: '账号或密码错误'
+          }
         })
       }
     }
