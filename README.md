@@ -204,3 +204,6 @@ module.exports = (app, router) => {
 - [web安全之SQL注入](https://www.imooc.com/learn/883)
 - [Web安全-XSS](https://www.imooc.com/learn/812)
 - [根据白名单过滤 HTML(防止 XSS 攻击)](https://github.com/leizongmin/js-xss/blob/master/README.zh.md)
+- [nodejs中使用bcrypt加密](https://blog.csdn.net/original_heart/article/details/78538908?reload)
+- [Nodejs进阶：MD5入门介绍及crypto模块的应用](https://juejin.im/post/58fc1f925c497d0058fc3015)
+- [Nodejs进阶：crypto模块中你需要掌握的安全基础知识](https://segmentfault.com/a/1190000012677632)

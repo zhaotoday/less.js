@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
+    "bcryptjs": "^2.4.3",
     "class-autobind": "^0.1.4",
     "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.0",
