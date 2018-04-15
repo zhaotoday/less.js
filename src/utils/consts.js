@@ -49,8 +49,7 @@ const DB = {
     dialect: 'mysql',
     define: {
       underscored: true
-    },
-    operatorsAliases: false
+    }
   }
 }
 

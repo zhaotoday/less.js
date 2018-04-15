@@ -81,7 +81,7 @@ module.exports = app => {
     },
     // 密码
     PASSWORD: {
-      type: STRING(50),
+      type: STRING(100),
       allowNull: false
     },
     // 电话

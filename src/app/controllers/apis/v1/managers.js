@@ -2,6 +2,13 @@ const bcrypt = require('bcryptjs')
 
 module.exports = app => {
   return class extends app.$Controller {
+    constructor () {
+      super()
+
+      this.service = app.$services.managers
+      this.addMethods(['put'])
+    }
+
     post (ctx) {
       const {password} = ctx.request.body
       const passwordHash = (() => {

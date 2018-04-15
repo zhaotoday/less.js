@@ -4,7 +4,7 @@ module.exports = app => {
       super()
 
       this.service = app.$services.articles
-      this.addMethods(['get', 'post'])
+      this.addMethods(['get', 'post', 'put', 'del'])
     }
   }
 }
