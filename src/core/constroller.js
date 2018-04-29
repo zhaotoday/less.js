@@ -1,4 +1,3 @@
-const consts = require('../utils/consts')
 const jwt = require('jsonwebtoken')
 
 module.exports = app => {

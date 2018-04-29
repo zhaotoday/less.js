@@ -12,6 +12,9 @@ Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上
 ### 1.2. 命令
 
 ```bash
+# 安装 pm2 到全局
+$ npm install -g pm2
+
 # 安装依赖
 $ npm install
 

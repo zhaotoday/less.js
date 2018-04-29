@@ -1,18 +1,18 @@
 {
-  "name": "koa-mvc-framework",
-  "version": "0.0.1",
+  "name": "less.js",
+  "version": "0.0.2",
   "description": "a koa mvc framework",
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js --debug",
     "start": "pm2 start processes.json --env production",
-    "stop": "pm2 stop koa-mvc",
+    "stop": "pm2 stop app1",
     "eslintfix": "eslint src/**/*.js --fix",
     "eslint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaotoday/koa-mvc.git"
+    "url": "git+https://github.com/zhaotoday/less.js.git"
   },
   "keywords": [
     "koa",
@@ -21,9 +21,9 @@
   "author": "zhaojintian",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhaotoday/koa-mvc/issues"
+    "url": "https://github.com/zhaotoday/less.js/issues"
   },
-  "homepage": "https://github.com/zhaotoday/koa-mvc#readme",
+  "homepage": "https://github.com/zhaotoday/less.js#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
