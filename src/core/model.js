@@ -1,7 +1,5 @@
-const consts = require('../utils/consts')
-const {database, username, password, options} = consts.DB
-
 module.exports = app => {
+  const {database, username, password, options} = app.$consts.DB
   const Op = app.$Sequelize.Op
 
   // 如果你使用默认别名并且不限制它们，Sequelize会发出警告。

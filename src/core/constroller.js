@@ -14,7 +14,7 @@ module.exports = app => {
      * @returns {string}
      */
     sign (data) {
-      return jwt.sign({data}, consts.JWT.secret, {expiresIn: consts.JWT.expiresIn})
+      return jwt.sign({data}, app.$consts.JWT.secret, {expiresIn: app.$consts.JWT.expiresIn})
     }
 
     /**
@@ -25,7 +25,7 @@ module.exports = app => {
     verify (ctx) {
       return new Promise((resolve, reject) => {
         try {
-          resolve(jwt.verify(ctx.request.headers.authorization, consts.JWT.secret))
+          resolve(jwt.verify(ctx.request.headers.authorization, app.$consts.JWT.secret))
         } catch (err) {
           reject(err)
         }

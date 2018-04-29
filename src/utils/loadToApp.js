@@ -2,7 +2,8 @@ const consts = require('./consts')
 const path = require('path')
 const fs = require('fs')
 
-module.exports = ({app, rules = []}) => {
+module.exports = app => {
+  // 递归
   function recurrence (rule, dir) {
     const target = {}
 
@@ -12,7 +13,7 @@ module.exports = ({app, rules = []}) => {
 
       if (extname === '.js') {
         // model 是一个类的实例，与 Service、Controller 分开处理
-        target[basename] = rule.name === consts.DIRS.MODELS
+        target[basename] = rule.name === app.$consts.DIRS.MODELS
           ? require(path.join(dir, file))(app)
           : new (require(path.join(dir, file))(app))()
       } else {
@@ -22,6 +23,9 @@ module.exports = ({app, rules = []}) => {
 
     return target
   }
+
+  // 挂载 consts 到 app
+  app.$consts = consts
 
   // 挂载 helpers 到 app
   app.$helpers = require('./helpers')(app)
@@ -41,7 +45,7 @@ module.exports = ({app, rules = []}) => {
   app.$Controller = require('../core/constroller')(app)
 
   // 挂载业务级 model、service、controller 到 app.$models、app.$services、app.$controllers
-  rules.forEach(rule => {
+  app.$consts.REGISTER_RULES.forEach(rule => {
     app[`$${rule.name}`] = recurrence(rule, rule.dir)
   })
 }
