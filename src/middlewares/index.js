@@ -5,4 +5,5 @@ module.exports = app => {
   require('./jwt')(app)
   require('./static')(app)
   require('./bodyparser')(app)
+  require('./views')(app)
 }
