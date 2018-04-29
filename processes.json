@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "koa-mvc",
+      "name": "app1",
       "script": "./src/index.js",
       "watch": [
         "src"
