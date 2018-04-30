@@ -1,7 +1,7 @@
 ## 0. 简介
 - 项目名：基于 Koa.js 的 Node.js MVC 框架。
-- 仓库地址：[https://github.com/zhaotoday/koa-mvc-framework](https://github.com/zhaotoday/koa-mvc-framework)。
-- 负责人：[赵金添@zhaotoday](https://github.com/zhaotoday)。
+- 仓库地址：[https://github.com/zhaotoday/less.js](https://github.com/zhaotoday/less.js)。
+- 负责人：[赵金添](https://github.com/zhaotoday)。
 - 特别说明：本项目参考了 Egg.js 框架及 iKcamp 分享的 Koa 视频教程。
 
 ## 1. 运行
@@ -15,8 +15,8 @@ Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上
 # 安装 pm2 到全局
 $ npm install -g pm2
 
-# 安装依赖
-$ npm install
+# 安装 less.js
+$ npm install --save less.js
 
 # JS 代码校验
 $ npm run eslintfix
@@ -44,11 +44,6 @@ $ npm run stop
 │  │  ├─ services          服务  ：用于编写业务逻辑层，比如连接数据库，调用第三方接口等
 │  │  └─ views             视图  ：用于放置模板文件，返回客户端的视图层
 │  │
-│  ├─ core                 核心代码
-│  │  ├─ controller.js     控制器基类
-│  │  ├─ model.js          模型基类
-│  │  └─ service.js        服务基类
-│  │
 │  ├─ middlewares          中间件
 │  ├─ public               静态资源
 │  ├─ router               URL 路由
@@ -61,10 +56,11 @@ $ npm run stop
 ├─ processes.json          pm2 配置文件
 ```
 
-### 2.2. 自定义挂载对象
+### 2.2. 添加自定义对象
 
 为了提高开发效率，这里人为的将一些自定义对象挂载到 app 下，用 $ 前缀命名，与 Koa.js 内置对象做区分。
 
+- app.$consts：常量和配置
 - app.$helpers：辅助函数
 - app.$model：公用模型对象
 - app.$Service：服务基类
@@ -74,6 +70,8 @@ $ npm run stop
 - app.$controllers：控制器集合
 
 ### 2.3. 示例
+
+完整的示例代码：[https://github.com/zhaotoday/lessjs-boilerplate](https://github.com/zhaotoday/lessjs-boilerplate)。
 
 #### 2.3.1. 模型
 
@@ -165,6 +163,62 @@ src/router/routes/articles.js
 ```js
 module.exports = (app, router) => {
   router.get('/articles', app.$controllers.articles.index)
+}
+```
+
+### 2.4. 扩展
+
+#### 2.4.1 常量及配置
+
+src/extends/consts.js
+
+```js
+// 监听端口
+const PORT = 3001
+
+// MySQL 数据库配置
+const DB = {
+  database: 'hzzww0n',
+  username: 'hzzww0n_f',
+  password: 'aaaaaa111111',
+  options: {
+    host: 'wvort936.669.dnstoo.com',
+    port: 4024,
+    dialect: 'mysql',
+    define: {
+      underscored: true
+    }
+  }
+}
+
+// Redis 配置
+const REDIS = {}
+
+// JWT 配置
+const JWT = {
+  secret: 'jwt_secret',
+  expiresIn: '5h'
+}
+
+module.exports = app => {
+  return {
+    PORT,
+    DB,
+    REDIS,
+    JWT
+  }
+}
+```
+
+#### 2.4.2 辅助方法
+
+src/extends/helpers.js
+
+```js
+module.exports = app => {
+  return {
+    myFunc () {}
+  }
 }
 ```
 
