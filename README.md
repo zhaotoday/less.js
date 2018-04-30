@@ -44,6 +44,7 @@ $ npm run stop
 │  │  ├─ services          服务  ：用于编写业务逻辑层，比如连接数据库，调用第三方接口等
 │  │  └─ views             视图  ：用于放置模板文件，返回客户端的视图层
 │  │
+│  ├─ extends              扩展
 │  ├─ middlewares          中间件
 │  ├─ public               静态资源
 │  ├─ router               URL 路由
