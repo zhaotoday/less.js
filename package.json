@@ -1,7 +1,7 @@
 {
   "name": "less.js",
-  "version": "0.0.2",
-  "description": "a koa mvc framework",
+  "version": "0.0.4",
+  "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js --debug",

@@ -14,7 +14,9 @@ const DIRS = {
   MODELS: 'models',
   SERVICES: 'services',
   CONTROLLERS: 'controllers',
-  VIEWS: 'views'
+  VIEWS: 'views',
+  ROUTER: 'router',
+  PUBLIC: 'public'
 }
 
 // EJS 模板
@@ -57,7 +59,7 @@ const DB = {
 const REDIS = {}
 
 // 静态资源目录
-const STATIC_DIR = path.resolve(ROOT, 'src/public')
+const STATIC_DIR = path.resolve(ROOT, `src/${DIRS.PUBLIC}`)
 
 // JWT 配置
 const JWT = {
