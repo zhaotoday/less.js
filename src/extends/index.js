@@ -1,4 +1,3 @@
-const consts = require('./consts')
 const path = require('path')
 const fs = require('fs')
 
@@ -25,7 +24,7 @@ module.exports = app => {
   }
 
   // 挂载 consts 到 app
-  app.$consts = consts
+  app.$consts = require('./consts')(app)
 
   // 挂载 helpers 到 app
   app.$helpers = require('./helpers')(app)

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = (app, filePath) => {
-  const file = path.resolve(app.$consts.ROOT, filePath)
+module.exports = filePath => {
+  const file = path.resolve(process.cwd(), filePath)
   return fs.existsSync(file) ? require(file) : null
 }

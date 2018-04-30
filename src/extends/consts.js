@@ -74,16 +74,20 @@ const CORS = {
   allowHeaders: 'Content-Type,Authorization'
 }
 
-module.exports = {
-  ROOT,
-  PORT,
-  PAGE_SIZE,
-  DIRS,
-  VIEWS,
-  REGISTER_RULES,
-  DB,
-  REDIS,
-  STATIC_DIR,
-  JWT,
-  CORS
+module.exports = app => {
+  const constsModule = require('../utils/loadModule')('src/extends/consts.js')
+
+  return Object.assign({
+    ROOT,
+    PORT,
+    PAGE_SIZE,
+    DIRS,
+    VIEWS,
+    REGISTER_RULES,
+    DB,
+    REDIS,
+    STATIC_DIR,
+    JWT,
+    CORS
+  }, constsModule ? constsModule(app) : null)
 }
