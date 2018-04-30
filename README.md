@@ -168,7 +168,7 @@ module.exports = (app, router) => {
 
 ### 2.4. 扩展
 
-#### 2.4.1 常量及配置
+#### 2.4.1. 常量及配置
 
 src/extends/consts.js
 
@@ -210,7 +210,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.4.2 辅助方法
+#### 2.4.2. 辅助方法
 
 src/extends/helpers.js
 
