@@ -8,4 +8,7 @@ module.exports = app => {
   require('./static')(app)
   require('./bodyparser')(app)
   require('./views')(app)
+
+  const middlewaresModule = require('../utils/loadModule')(`${app.$consts.DIRS.MIDDLEWARES}/index.js`)
+  middlewaresModule && middlewaresModule(app)
 }

@@ -12,7 +12,7 @@ module.exports = app => {
 
       if (extname === '.js') {
         // model 是一个类的实例，与 Service、Controller 分开处理
-        target[basename] = rule.name === app.$consts.DIRS.MODELS
+        target[basename] = rule.name === 'models'
           ? require(path.join(dir, file))(app)
           : new (require(path.join(dir, file))(app))()
       } else {

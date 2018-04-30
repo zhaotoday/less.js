@@ -11,17 +11,21 @@ const PAGE_SIZE = 10
 
 // 目录
 const DIRS = {
-  MODELS: 'models',
-  SERVICES: 'services',
-  CONTROLLERS: 'controllers',
-  VIEWS: 'views',
-  ROUTER: 'router',
-  PUBLIC: 'public'
+  SRC: 'src',
+  MIDDLEWARES: 'src/middlewares',
+  ROUTER: 'src/router',
+  PUBLIC: 'src/public',
+  EXTENDS: 'src/extends',
+  APP: 'src/app',
+  MODELS: 'src/app/models',
+  SERVICES: 'src/app/services',
+  CONTROLLERS: 'src/app/controllers',
+  VIEWS: 'src/app/views'
 }
 
 // EJS 模板
 const VIEWS = {
-  root: path.resolve(ROOT, `src/app/${DIRS.VIEWS}`),
+  root: path.resolve(ROOT, DIRS.VIEWS),
   layout: false,
   viewExt: 'ejs',
   cache: false,
@@ -30,14 +34,14 @@ const VIEWS = {
 
 // 注册规则
 const REGISTER_RULES = [{
-  name: DIRS.MODELS,
-  dir: path.resolve(ROOT, `src/app/${DIRS.MODELS}`)
+  name: 'models',
+  dir: path.resolve(ROOT, DIRS.MODELS)
 }, {
-  name: DIRS.SERVICES,
-  dir: path.resolve(ROOT, `src/app/${DIRS.SERVICES}`)
+  name: 'services',
+  dir: path.resolve(ROOT, DIRS.SERVICES)
 }, {
-  name: DIRS.CONTROLLERS,
-  dir: path.resolve(ROOT, `src/app/${DIRS.CONTROLLERS}`)
+  name: 'controllers',
+  dir: path.resolve(ROOT, DIRS.CONTROLLERS)
 }]
 
 // MySQL 数据库配置
@@ -59,7 +63,7 @@ const DB = {
 const REDIS = {}
 
 // 静态资源目录
-const STATIC_DIR = path.resolve(ROOT, `src/${DIRS.PUBLIC}`)
+const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
 
 // JWT 配置
 const JWT = {
@@ -75,7 +79,7 @@ const CORS = {
 }
 
 module.exports = app => {
-  const constsModule = require('../utils/loadModule')('src/extends/consts.js')
+  const constsModule = require('../utils/loadModule')(`${DIRS.EXTENDS}/consts.js`)
 
   return Object.assign({
     ROOT,

@@ -1,5 +1,5 @@
 module.exports = app => {
-  const helpersModule = require('../utils/loadModule')('src/extends/helpers.js')
+  const helpersModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/helpers.js`)
 
   return Object.assign({
     /**
@@ -11,5 +11,5 @@ module.exports = app => {
 
       return {offset: +offset, limit: +limit, where: JSON.parse(where), order}
     }
-  }, helpersModule)
+  }, helpersModule ? helpersModule(app) : null)
 }
