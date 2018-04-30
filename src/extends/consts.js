@@ -32,8 +32,8 @@ const VIEWS = {
   debug: false
 }
 
-// 注册规则
-const REGISTER_RULES = [{
+// 挂载规则
+const LOAD_RULES = [{
   name: 'models',
   dir: path.resolve(ROOT, DIRS.MODELS)
 }, {
@@ -45,19 +45,7 @@ const REGISTER_RULES = [{
 }]
 
 // MySQL 数据库配置
-const DB = {
-  database: 'hzzww0n',
-  username: 'hzzww0n_f',
-  password: 'aaaaaa111111',
-  options: {
-    host: 'wvort936.669.dnstoo.com',
-    port: 4024,
-    dialect: 'mysql',
-    define: {
-      underscored: true
-    }
-  }
-}
+const DB = {}
 
 // Redis 配置
 const REDIS = {}
@@ -66,10 +54,7 @@ const REDIS = {}
 const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
 
 // JWT 配置
-const JWT = {
-  secret: 'jwt_secret',
-  expiresIn: '5h'
-}
+const JWT = {}
 
 // CORS 跨域配置
 const CORS = {
@@ -87,7 +72,7 @@ module.exports = app => {
     PAGE_SIZE,
     DIRS,
     VIEWS,
-    REGISTER_RULES,
+    LOAD_RULES,
     DB,
     REDIS,
     STATIC_DIR,
