@@ -37,12 +37,12 @@ module.exports = app => {
   app.$Sequelize = require('sequelize')
 
   // 挂载 Sequelize 实例 model 到 app
-  app.$model = require('../core/model')(app)
+  app.$model = require('./model')(app)
   app.$model.columns = require('./columns')(app)
 
   // 挂载基类 Service、Controller 到 app
-  app.$Service = require('../core/service')(app)
-  app.$Controller = require('../core/constroller')(app)
+  app.$Service = require('./service')(app)
+  app.$Controller = require('./controller')(app)
 
   // 挂载业务级 model、service、controller 到 app.$models、app.$services、app.$controllers
   app.$consts.REGISTER_RULES.forEach(rule => {
