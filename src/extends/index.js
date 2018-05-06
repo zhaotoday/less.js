@@ -29,6 +29,9 @@ module.exports = app => {
   // 挂载 helpers 到 app
   app.$helpers = require('./helpers')(app)
 
+  // 挂载 module 到 app
+  app.$module = require('./module')(app)
+
   // 挂载 resources 到 app
   app.$resources = require('./resources')
 

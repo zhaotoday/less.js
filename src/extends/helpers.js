@@ -1,7 +1,5 @@
 module.exports = app => {
-  const helpersModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/helpers.js`)
-
-  return Object.assign({
+  const helpers = {
     /**
      * 格式化查询
      * @returns {Object}
@@ -11,5 +9,9 @@ module.exports = app => {
 
       return {offset: +offset, limit: +limit, where: JSON.parse(where), order}
     }
-  }, helpersModule ? helpersModule(app) : null)
+  }
+
+  const helpersModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/helpers.js`)
+
+  return Object.assign(helpers, helpersModule ? helpersModule(app) : null)
 }

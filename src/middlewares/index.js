@@ -7,6 +7,7 @@ module.exports = app => {
   require('./jwt')(app)
   require('./static')(app)
   require('./bodyparser')(app)
+  require('./body')(app)
   require('./views')(app)
 
   const middlewaresModule = require('../utils/loadModule')(`${app.$consts.DIRS.MIDDLEWARES}/index.js`)
