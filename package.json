@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -35,7 +35,6 @@
     "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.0",
     "koa-body": "^2.5.0",
-    "koa-bodyparser": "^4.2.0",
     "koa-ejs": "^4.1.1",
     "koa-jwt": "^3.3.1",
     "koa-router": "^7.4.0",
