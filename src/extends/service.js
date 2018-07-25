@@ -1,5 +1,5 @@
 module.exports = app => {
-  return class {
+  class Service {
     constructor () {
       this.model = null
     }
@@ -52,4 +52,8 @@ module.exports = app => {
       return this.model.count({ where })
     }
   }
+
+  const serviceModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/service.js`)
+
+  return serviceModule ? serviceModule(app, Service) : Service
 }
