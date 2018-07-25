@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = app => {
-  return class {
+  class Controller {
     constructor () {
       require('class-autobind').default(this)
       this.service = null
@@ -13,7 +13,7 @@ module.exports = app => {
      * @returns {string}
      */
     sign (data) {
-      return jwt.sign({data}, app.$consts.JWT.secret, {expiresIn: app.$consts.JWT.expiresIn})
+      return jwt.sign({ data }, app.$consts.JWT.secret, { expiresIn: app.$consts.JWT.expiresIn })
     }
 
     /**
@@ -52,16 +52,16 @@ module.exports = app => {
       if (ctx.params.id) {
         ctx.send({
           status: 200,
-          data: await this.service.find({id: ctx.params.id})
+          data: await this.service.find({ id: ctx.params.id })
         })
       } else {
-        const {offset, limit, where} = app.$helpers.formatQuery(ctx.request.query)
+        const { offset, limit, where } = app.$helpers.formatQuery(ctx.request.query)
 
         ctx.send({
           status: 200,
           data: {
-            total: await this.service.count({where}),
-            items: await this.service.find({offset, limit, where})
+            total: await this.service.count({ where }),
+            items: await this.service.find({ offset, limit, where })
           }
         })
       }
@@ -75,7 +75,7 @@ module.exports = app => {
     async _post (ctx) {
       ctx.send({
         status: 201,
-        data: await this.service.create({body: ctx.request.body})
+        data: await this.service.create({ body: ctx.request.body })
       })
     }
 
@@ -89,7 +89,7 @@ module.exports = app => {
         id: ctx.params.id,
         body: ctx.request.body
       })
-      ctx.send({status: 204})
+      ctx.send({ status: 204 })
     }
 
     /**
@@ -98,8 +98,12 @@ module.exports = app => {
      * @private
      */
     async _del (ctx) {
-      await this.service.destroy({id: ctx.params.id})
-      ctx.send({status: 204})
+      await this.service.destroy({ id: ctx.params.id })
+      ctx.send({ status: 204 })
     }
   }
+
+  const controllerModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/controller.js`)
+
+  return controllerModule ? controllerModule(app, Controller) : Controller
 }
