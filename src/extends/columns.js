@@ -2,7 +2,7 @@
  * 预设的数据库表列
  */
 module.exports = app => {
-  const {STRING, TEXT, INTEGER, FLOAT} = app.$Sequelize
+  const { STRING, TEXT, INTEGER, FLOAT } = app.$Sequelize
 
   return {
     // 自增 ID，主键
