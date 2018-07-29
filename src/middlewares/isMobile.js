@@ -4,7 +4,7 @@ module.exports = app => {
   app.use(async (ctx, next) => {
     const md = new MobileDetect(ctx.request.headers['user-agent'])
 
-    ctx.isPhone = !!md.phone()
+    ctx.isMobile = !!md.mobile()
 
     await next()
   })

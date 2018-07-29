@@ -8,7 +8,7 @@ module.exports = app => {
   require('./static')(app)
   require('./body')(app)
   require('./views')(app)
-  require('./isPhone')(app)
+  require('./isMobile')(app)
 
   const middlewaresModule = require('../utils/loadModule')(`${app.$consts.DIRS.MIDDLEWARES}/index.js`)
   middlewaresModule && middlewaresModule(app)
