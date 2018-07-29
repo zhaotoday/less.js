@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "0.0.19",
+  "version": "0.0.28",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -32,6 +32,7 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "class-autobind": "^0.1.4",
+    "date-fns": "^1.29.0",
     "ejs": "^2.6.1",
     "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.0",
@@ -40,9 +41,11 @@
     "koa-jwt": "^3.3.1",
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
+    "mobile-detect": "^1.4.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.5",
+    "striptags": "^3.1.1",
     "uuid": "^3.2.1"
   }
 }
