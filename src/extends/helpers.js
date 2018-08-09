@@ -8,6 +8,15 @@ module.exports = app => {
       const { offset = 0, limit = 10, where = '{}', order = [['id', 'DESC']] } = query
 
       return { offset: +offset, limit: +limit, where: JSON.parse(where), order }
+    },
+    random (n) {
+      let ret = ''
+
+      for (let i = 0; i < n; i++) {
+        ret += Math.floor(Math.random() * 10)
+      }
+
+      return ret
     }
   }
 

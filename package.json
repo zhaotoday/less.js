@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "0.0.29",
+  "version": "0.0.48",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -40,10 +40,13 @@
     "koa-ejs": "^4.1.1",
     "koa-jwt": "^3.3.1",
     "koa-router": "^7.4.0",
+    "koa-session": "^5.8.2",
     "koa-static": "^4.0.2",
     "mobile-detect": "^1.4.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "node-schedule": "^1.3.0",
+    "qcloudsms_js": "^0.1.1",
     "sequelize": "^4.37.5",
     "striptags": "^3.1.1",
     "uuid": "^3.2.1"

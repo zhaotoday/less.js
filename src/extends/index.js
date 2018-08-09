@@ -50,4 +50,7 @@ module.exports = app => {
   app.$consts.LOAD_RULES.forEach(rule => {
     app[`$${rule.name}`] = recurrence(rule, rule.dir)
   })
+
+  // 初始化
+  require('./init')(app)
 }

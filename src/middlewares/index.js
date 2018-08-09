@@ -9,6 +9,7 @@ module.exports = app => {
   require('./body')(app)
   require('./views')(app)
   require('./isMobile')(app)
+  require('./session')(app)
 
   const middlewaresModule = require('../utils/loadModule')(`${app.$consts.DIRS.MIDDLEWARES}/index.js`)
   middlewaresModule && middlewaresModule(app)

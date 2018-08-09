@@ -47,9 +47,6 @@ const LOAD_RULES = [{
 // MySQL 数据库配置
 const DB = {}
 
-// Redis 配置
-const REDIS = {}
-
 // 静态资源目录
 const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
 
@@ -63,6 +60,20 @@ const CORS = {
   allowHeaders: 'Content-Type,Authorization'
 }
 
+const SMS = {
+  APPID: '',
+  APPKEY: '',
+  SMSSIGN: ''
+}
+
+const KEYS = []
+
+// Redis 配置
+const REDIS = {}
+
+// Session 配置
+const SESSION = {}
+
 module.exports = app => {
   const constsModule = require('../utils/loadModule')(`${DIRS.EXTENDS}/consts.js`)
 
@@ -74,9 +85,11 @@ module.exports = app => {
     VIEWS,
     LOAD_RULES,
     DB,
-    REDIS,
     STATIC_DIR,
     JWT,
-    CORS
+    CORS,
+    SMS,
+    REDIS,
+    SESSION
   }, constsModule ? constsModule(app) : null)
 }
