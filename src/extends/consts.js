@@ -3,12 +3,6 @@ const path = require('path')
 // Node.js 工作目录
 const ROOT = process.cwd()
 
-// 监听端口
-const PORT = 3000
-
-// 分页大小
-const PAGE_SIZE = 10
-
 // 目录
 const DIRS = {
   SRC: 'src',
@@ -16,6 +10,7 @@ const DIRS = {
   ROUTER: 'src/router',
   PUBLIC: 'src/public',
   EXTENDS: 'src/extends',
+  CONFIG: 'src/config',
   APP: 'src/app',
   MODELS: 'src/app/models',
   SERVICES: 'src/app/services',
@@ -44,52 +39,17 @@ const LOAD_RULES = [{
   dir: path.resolve(ROOT, DIRS.CONTROLLERS)
 }]
 
-// MySQL 数据库配置
-const DB = {}
-
 // 静态资源目录
 const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
-
-// JWT 配置
-const JWT = {}
-
-// CORS 跨域配置
-const CORS = {
-  origin: '*',
-  allowMethods: 'HEAD,GET,POST,PUT,PATCH,DELETE',
-  allowHeaders: 'Content-Type,Authorization'
-}
-
-const SMS = {
-  APPID: '',
-  APPKEY: '',
-  SMSSIGN: ''
-}
-
-const KEYS = []
-
-// Redis 配置
-const REDIS = {}
-
-// Session 配置
-const SESSION = {}
 
 module.exports = app => {
   const constsModule = require('../utils/loadModule')(`${DIRS.EXTENDS}/consts.js`)
 
   return Object.assign({
     ROOT,
-    PORT,
-    PAGE_SIZE,
     DIRS,
     VIEWS,
     LOAD_RULES,
-    DB,
-    STATIC_DIR,
-    JWT,
-    CORS,
-    SMS,
-    REDIS,
-    SESSION
+    STATIC_DIR
   }, constsModule ? constsModule(app) : null)
 }
