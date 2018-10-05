@@ -13,6 +13,9 @@ module.exports = app => {
       if (id) {
         return this.model.findById(id)
       } else {
+        if (this.hasOrder) {
+          order = [['order', 'DESC']]
+        }
         return this.model.findAll({ attributes, offset, limit, where, order })
       }
     }
@@ -21,11 +24,10 @@ module.exports = app => {
      * 查询符合条件的上一条记录
      * @returns {Promise}
      */
-    async findPrev ({ id = '', attributes = null, where = {}, order = [['id', 'DESC']] } = {}) {
+    async findPrev ({ id = '', attributes = null, where = {}, order = [['order', 'ASC']] } = {}) {
       if (id) {
-        where = { ...where, id: { $lt: id } }
+        where = { ...where, id: { $gt: id } }
       }
-
       return (await this.model.findAll({ attributes, limit: 1, where, order }))[0] || null
     }
 
@@ -33,9 +35,9 @@ module.exports = app => {
      * 查询符合条件的下一条记录
      * @returns {Promise}
      */
-    async findNext ({ id = '', attributes = null, where = {} } = {}, order = [['id', 'ASC']]) {
+    async findNext ({ id = '', attributes = null, where = {} } = {}, order = [['order', 'DESC']]) {
       if (id) {
-        where = { ...where, id: { $gt: id } }
+        where = { ...where, id: { $lt: id } }
       }
 
       return (await this.model.findAll({ attributes, limit: 1, where, order }))[0] || null
@@ -57,8 +59,11 @@ module.exports = app => {
      */
     async create ({ body = null } = {}) {
       if (this.hasOrder) {
-        const findPrevRes = await this.findPrev()
-        body = { ...body, order: findPrevRes ? findPrevRes.id + 1 : 1 }
+        const findPrevRes = await this.model.findAll({
+          limit: 1,
+          order: [['id', 'desc']]
+        })
+        body = { ...body, order: findPrevRes[0] ? findPrevRes[0].id + 1 : 1 }
       }
 
       return this.model.create(body)
