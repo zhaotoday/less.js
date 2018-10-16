@@ -5,9 +5,9 @@ module.exports = app => {
      * @returns {Object}
      */
     formatQuery (query) {
-      const { offset = 0, limit = 10, where = '{}', order = [['id', 'DESC']] } = query
+      const { offset = 0, limit = 10, where = '{}', order = JSON.stringify([['id', 'DESC']]) } = query
 
-      return { offset: +offset, limit: +limit, where: JSON.parse(where), order }
+      return { offset: +offset, limit: +limit, where: JSON.parse(where), order: JSON.parse(order) }
     },
     random (n) {
       let ret = ''

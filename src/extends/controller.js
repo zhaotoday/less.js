@@ -55,13 +55,13 @@ module.exports = app => {
           data: await this.service.find({ id: ctx.params.id })
         })
       } else {
-        const { offset, limit, where } = app.$helpers.formatQuery(ctx.request.query)
+        const { offset, limit, where, order } = app.$helpers.formatQuery(ctx.request.query)
 
         ctx.send({
           status: 200,
           data: {
             total: await this.service.count({ where }),
-            items: await this.service.find({ offset, limit, where })
+            items: await this.service.find({ offset, limit, where, order })
           }
         })
       }
