@@ -17,6 +17,9 @@ const DB = {}
 // 短信
 const SMS = {}
 
+// 推送
+const PUSH = {}
+
 // SESSION
 const SESSION = {
   key: 'koa:sess',
@@ -37,6 +40,7 @@ module.exports = app => {
     CORS,
     DB,
     SMS,
+    PUSH,
     SESSION
   }, configModule ? configModule(app) : null)
 }
