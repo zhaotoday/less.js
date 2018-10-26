@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "0.0.69",
+  "version": "0.0.72",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "class-autobind": "^0.1.4",
     "date-fns": "^1.29.0",
     "ejs": "^2.6.1",
+    "jpush-async": "^4.0.0-rc.1",
     "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.0",
     "koa-body": "^2.5.0",
