@@ -59,22 +59,20 @@ $ npm run stop
 
 对 Koa.js 的一些扩展，用 $ 前缀命名，与 Koa.js 内置对象做区分。
 
-#### 对象/方法
+```
+$config：配置
+$module：加载内置模块
+$helpers：辅助函数
+$resources：生成 RESTful 规范的路由
+$model：公用模型对象
+$Service：服务基类
+$Controller：控制器基类
+$models：模型集合
+$services：服务集合
+$controllers：控制器集合
+```
 
-- app.$config：配置
-- app.$module：加载内置模块
-- app.$helpers：辅助函数
-- app.$resources：生成 RESTful 规范的路由
-- app.$model：公用模型对象
-- app.$Service：服务基类
-- app.$Controller：控制器基类
-- app.$models：模型集合
-- app.$services：服务集合
-- app.$controllers：控制器集合
-
-#### 示例
-
-扩展辅助方法，新建 src/extends/helpers.js：
+如扩展辅助方法，新建 src/extends/helpers.js：
 
 ```js
 module.exports = app => {
