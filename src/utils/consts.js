@@ -42,14 +42,10 @@ const LOAD_RULES = [{
 // 静态资源目录
 const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
 
-module.exports = app => {
-  const constsModule = require('../utils/loadModule')(`${DIRS.EXTENDS}/consts.js`)
-
-  return Object.assign({
-    ROOT,
-    DIRS,
-    VIEWS,
-    LOAD_RULES,
-    STATIC_DIR
-  }, constsModule ? constsModule(app) : null)
+module.exports = {
+  ROOT,
+  DIRS,
+  VIEWS,
+  LOAD_RULES,
+  STATIC_DIR
 }

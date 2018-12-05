@@ -23,9 +23,6 @@ module.exports = app => {
     return target
   }
 
-  // 挂载 consts 到 app
-  app.$consts = require('./consts')(app)
-
   // 挂载 config 到 app
   app.$config = require('./config')(app)
 
