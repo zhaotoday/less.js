@@ -1,3 +1,5 @@
+const consts = require('../utils/consts')
+
 module.exports = app => {
   require('./static')(app)
   require('./send')(app)
@@ -11,6 +13,6 @@ module.exports = app => {
   require('./isMobile')(app)
   require('./session')(app)
 
-  const middlewaresModule = require('../utils/loadModule')(`${app.$consts.DIRS.MIDDLEWARES}/index.js`)
+  const middlewaresModule = require('../utils/loadModule')(`${consts.DIRS.MIDDLEWARES}/index.js`)
   middlewaresModule && middlewaresModule(app)
 }

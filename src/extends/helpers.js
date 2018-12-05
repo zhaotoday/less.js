@@ -1,3 +1,5 @@
+const consts = require('../utils/consts')
+
 module.exports = app => {
   const helpers = {
     /**
@@ -35,7 +37,7 @@ module.exports = app => {
     }
   }
 
-  const helpersModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/helpers.js`)
+  const helpersModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/helpers.js`)
 
   return Object.assign(helpers, helpersModule ? helpersModule(app) : null)
 }

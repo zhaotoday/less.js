@@ -1,3 +1,4 @@
+const consts = require('../utils/consts')
 const jwt = require('jsonwebtoken')
 
 module.exports = app => {
@@ -103,7 +104,7 @@ module.exports = app => {
     }
   }
 
-  const controllerModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/controller.js`)
+  const controllerModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/controller.js`)
 
   return controllerModule ? controllerModule(app, Controller) : Controller
 }

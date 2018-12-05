@@ -1,3 +1,4 @@
+const consts = require('../utils/consts')
 const path = require('path')
 const fs = require('fs')
 
@@ -46,7 +47,7 @@ module.exports = app => {
   app.$Controller = require('./controller')(app)
 
   // 挂载业务级 model、service、controller 到 app.$models、app.$services、app.$controllers
-  app.$consts.LOAD_RULES.forEach(rule => {
+  consts.LOAD_RULES.forEach(rule => {
     app[`$${rule.name}`] = recurrence(rule, rule.dir)
   })
 

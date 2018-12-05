@@ -1,3 +1,5 @@
+const consts = require('../utils/consts')
+
 module.exports = app => {
   class Service {
     constructor () {
@@ -88,7 +90,7 @@ module.exports = app => {
     }
   }
 
-  const serviceModule = require('../utils/loadModule')(`${app.$consts.DIRS.EXTENDS}/service.js`)
+  const serviceModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/service.js`)
 
   return serviceModule ? serviceModule(app, Service) : Service
 }

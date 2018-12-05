@@ -1,3 +1,5 @@
+const consts = require('../utils/consts')
+
 // APP KEYS
 const APP_KEYS = {}
 
@@ -32,7 +34,7 @@ const SESSION = {
 }
 
 module.exports = app => {
-  const configModule = require('../utils/loadModule')(`${app.$consts.DIRS.CONFIG}/index.js`)
+  const configModule = require('../utils/loadModule')(`${consts.DIRS.CONFIG}/index.js`)
 
   return Object.assign({
     APP_KEYS,
