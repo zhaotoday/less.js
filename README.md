@@ -1,15 +1,13 @@
-## 0. 简介
-- 项目名：基于 Koa.js 的 Node.js MVC 框架。
+## 简介
+- 项目：基于 Koa.js 的 Node.js MVC 框架。
 - 仓库地址：[https://github.com/zhaotoday/less.js](https://github.com/zhaotoday/less.js)。
-- 负责人：[赵金添](https://github.com/zhaotoday)。
-- 特别说明：本项目参考了 Egg.js 框架及 iKcamp 分享的 Koa 视频教程。
 
-## 1. 运行
+## 运行
 
-### 1.1. Node 版本
+### Node 版本
 Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
 
-### 1.2. 命令
+### 命令
 
 ```bash
 # 安装 pm2 到全局
@@ -32,9 +30,9 @@ $ npm start
 $ npm run stop
 ```
 
-## 2. 规范
+## 规范
 
-### 2.1. 目录结构
+### 目录结构
 
 ```
 ├─ src                     源码
@@ -57,13 +55,16 @@ $ npm run stop
 ├─ processes.json          pm2 配置文件
 ```
 
-### 2.2. 添加自定义对象
+### 扩展
 
-为了提高开发效率，这里人为的将一些自定义对象挂载到 app 下，用 $ 前缀命名，与 Koa.js 内置对象做区分。
+对 Koa.js 的一些扩展，用 $ 前缀命名，与 Koa.js 内置对象做区分。
 
-- app.$consts：常量和配置
-- app.$module：动态加载内置模块
+#### 对象/方法
+
+- app.$config：配置
+- app.$module：加载内置模块
 - app.$helpers：辅助函数
+- app.$resources：生成 RESTful 规范的路由
 - app.$model：公用模型对象
 - app.$Service：服务基类
 - app.$Controller：控制器基类
@@ -71,11 +72,23 @@ $ npm run stop
 - app.$services：服务集合
 - app.$controllers：控制器集合
 
-### 2.3. 示例
+#### 示例
+
+扩展辅助方法，新建 src/extends/helpers.js：
+
+```js
+module.exports = app => {
+  return {
+    myFunc () {}
+  }
+}
+```
+
+### 完整示例项目
 
 完整的示例代码：[https://github.com/zhaotoday/lessjs-boilerplate](https://github.com/zhaotoday/lessjs-boilerplate)。
 
-#### 2.3.1. 模型
+#### 模型
 
 src/app/models/articles.js
 
@@ -128,7 +141,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.3.2. 服务
+#### 服务
 
 src/app/services/articles.js
 
@@ -144,7 +157,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.3.3. 控制器
+#### 控制器
 
 src/app/controllers/articles.js
 
@@ -162,7 +175,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.3.4. 视图
+#### 视图
 
 src/app/views/articles.ejs
 
@@ -170,7 +183,7 @@ src/app/views/articles.ejs
 <%- JSON.stringify(items) %>
 ```
 
-#### 2.3.5. API
+#### RESTful API
 
 src/app/controllers/apis/v1/articles.js
 
@@ -189,7 +202,7 @@ module.exports = app => {
 }
 ```
 
-#### 2.3.6. 路由
+#### 路由
 
 src/router/routes/articles.js
 
@@ -199,65 +212,9 @@ module.exports = (app, router) => {
 }
 ```
 
-### 2.4. 扩展
+## 参考
 
-#### 2.4.1. 常量及配置
-
-src/extends/consts.js
-
-```js
-// 监听端口
-const PORT = 3001
-
-// MySQL 数据库配置
-const DB = {
-  database: 'hzzww0n',
-  username: 'hzzww0n_f',
-  password: 'aaaaaa111111',
-  options: {
-    host: 'wvort936.669.dnstoo.com',
-    port: 4024,
-    dialect: 'mysql',
-    define: {
-      underscored: true
-    }
-  }
-}
-
-// Redis 配置
-const REDIS = {}
-
-// JWT 配置
-const JWT = {
-  secret: 'jwt_secret',
-  expiresIn: '5h'
-}
-
-module.exports = app => {
-  return {
-    PORT,
-    DB,
-    REDIS,
-    JWT
-  }
-}
-```
-
-#### 2.4.2. 辅助方法
-
-src/extends/helpers.js
-
-```js
-module.exports = app => {
-  return {
-    myFunc () {}
-  }
-}
-```
-
-## 3. 参考
-
-### 3.1. 文档
+### 文档
 
 - [Koa 官网](http://koajs.com)
 - [koa 中文网](http://www.koacn.com/)
@@ -271,7 +228,7 @@ module.exports = app => {
 - [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 - [PM2 官网](http://pm2.keymetrics.io)
 
-### 3.2. 文章
+### 文章
 
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
 - [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/)
@@ -285,7 +242,7 @@ module.exports = app => {
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
-### 3.3. 安全  
+### 安全
 
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
 - [Web安全系列——XSS攻击](https://qiuzhenyuan.github.io/2017/11/11/Web安全系列——XSS攻击/)
