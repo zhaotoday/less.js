@@ -72,7 +72,7 @@ app.$services：服务集合
 app.$controllers：控制器集合
 ```
 
-如扩展辅助方法，请新建 src/extends/helpers.js：
+如扩展辅助函数，请新建 src/extends/helpers.js：
 
 ```js
 module.exports = app => {
