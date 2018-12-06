@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "0.0.75",
+  "version": "1.0.1",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -24,32 +24,32 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
-    "@koa/cors": "^2.2.1",
+    "@koa/cors": "^2.2.2",
     "class-autobind": "^0.1.4",
     "date-fns": "^1.29.0",
     "ejs": "^2.6.1",
     "jpush-async": "^4.0.0-rc.1",
-    "jsonwebtoken": "^8.2.1",
-    "koa": "^2.5.0",
-    "koa-body": "^2.5.0",
-    "koa-ejs": "^4.1.1",
-    "koa-jwt": "^3.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "koa": "^2.6.2",
+    "koa-body": "^2.6.0",
+    "koa-ejs": "^4.1.2",
+    "koa-jwt": "^3.5.1",
     "koa-router": "^7.4.0",
-    "koa-session": "^5.8.2",
-    "koa-static": "^4.0.2",
-    "mobile-detect": "^1.4.2",
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.3",
-    "node-schedule": "^1.3.0",
+    "koa-session": "^5.10.0",
+    "koa-static": "^4.0.3",
+    "mobile-detect": "^1.4.3",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
+    "node-schedule": "^1.3.1",
     "qcloudsms_js": "^0.1.1",
-    "sequelize": "^4.37.5",
+    "sequelize": "^4.41.2",
     "striptags": "^3.1.1",
-    "uuid": "^3.2.1"
+    "uuid": "^3.3.2"
   }
 }
