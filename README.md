@@ -240,6 +240,16 @@ module.exports = (app, router) => {
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
+### MySQL、Redis
+
+- [21分钟MySQL基础入门](https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md)
+- [30分钟SQL指南](https://github.com/shfshanyue/blog/tree/master/Articles/SQL-Guideline)
+- [思维导图-索引篇](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/MySQL%20Index.md)
+- [MySql常用30种SQL查询语句优化方法](https://juejin.im/post/5ab4a5ea518825556918ebc4)
+- [一个小时学会MySQL数据库](https://www.cnblogs.com/best/p/6517755.html)
+- [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/5ae55861f265da0ba062ec71)
+- [Redis](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/Redis/Redis.md)
+
 ### 安全
 
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
