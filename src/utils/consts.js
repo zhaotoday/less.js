@@ -20,7 +20,7 @@ const DIRS = {
 
 // EJS 模板
 const VIEWS = {
-  root: path.resolve(ROOT, DIRS.VIEWS),
+  root: path.resolve(DIRS.VIEWS),
   layout: false,
   viewExt: 'ejs',
   cache: false,
@@ -30,17 +30,17 @@ const VIEWS = {
 // 挂载规则
 const LOAD_RULES = [{
   name: 'models',
-  dir: path.resolve(ROOT, DIRS.MODELS)
+  dir: path.resolve(DIRS.MODELS)
 }, {
   name: 'services',
-  dir: path.resolve(ROOT, DIRS.SERVICES)
+  dir: path.resolve(DIRS.SERVICES)
 }, {
   name: 'controllers',
-  dir: path.resolve(ROOT, DIRS.CONTROLLERS)
+  dir: path.resolve(DIRS.CONTROLLERS)
 }]
 
 // 静态资源目录
-const STATIC_DIR = path.resolve(ROOT, DIRS.PUBLIC)
+const STATIC_DIR = path.resolve(DIRS.PUBLIC)
 
 module.exports = {
   ROOT,

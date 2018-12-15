@@ -11,10 +11,14 @@ module.exports = app => {
     /**
      * 签名
      * @param {Object} data 数据
-     * @returns {string}
+     * @returns {Promise}
      */
-    sign (data) {
-      return jwt.sign({ data }, app.$config.JWT.secret, { expiresIn: app.$config.JWT.expiresIn })
+    sign (data, config) {
+      return new Promise((resolve, reject) => {
+        jwt.sign({ data }, config.secret, { expiresIn: config.expiresIn }, (err, token) => {
+          err ? reject(err) : resolve(token)
+        })
+      })
     }
 
     /**
@@ -22,13 +26,11 @@ module.exports = app => {
      * @param {Object} ctx 上下文
      * @returns {Promise}
      */
-    verify (ctx) {
+    verify (ctx, config) {
       return new Promise((resolve, reject) => {
-        try {
-          resolve(jwt.verify(ctx.request.headers.authorization, app.$config.JWT.secret))
-        } catch (err) {
-          reject(err)
-        }
+        jwt.verify(ctx.request.headers.authorization.substring(7), config.secret, (err, decoded) => {
+          err ? reject(err) : resolve(decoded.data)
+        })
       })
     }
 
