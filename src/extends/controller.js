@@ -11,6 +11,7 @@ module.exports = app => {
     /**
      * 签名
      * @param {Object} data 数据
+     * @param {Object} config 配置
      * @returns {Promise}
      */
     sign (data, config) {
@@ -24,6 +25,7 @@ module.exports = app => {
     /**
      * 校验
      * @param {Object} ctx 上下文
+     * @param {Object} config 配置
      * @returns {Promise}
      */
     verify (ctx, config) {
