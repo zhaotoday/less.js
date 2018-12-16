@@ -34,6 +34,8 @@ $ npm run stop
 
 ### 目录结构
 
+整体目录结构
+
 ```
 ├─ src                     源码
 │  ├─ app                  业务代码
@@ -53,6 +55,25 @@ $ npm run stop
 ├─ nodemon.json            nodemon 配置文件
 ├─ package.json            npm 配置文件
 ├─ processes.json          pm2 配置文件
+```
+
+控制器（controllers）目录结构
+
+```
+├─ controllers             控制器
+│  ├─ api                  接口
+│  │  └─ v1                接口版本
+│  │     ├─ admin          管理接口
+│  │     │  ├─ articles    articles 接口控制器
+│  │     │  └─ files       files 接口控制器
+│  │     │
+│  │     ├─ public         公开接口（无需鉴权即可调用）
+│  │     │
+│  │     └─ some-app       某个应用的接口
+│  │
+│  ├─ web                  网站
+│  │  ├─ articles          articles 页面控制器
+│  │  └─ files             files 页面控制器
 ```
 
 ### 扩展
