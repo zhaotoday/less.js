@@ -6,17 +6,17 @@ module.exports = app => {
     constructor () {
       require('class-autobind').default(this)
       this.service = null
+      this.jwtConfig = null
     }
 
     /**
      * 签名
      * @param {Object} data 数据
-     * @param {Object} config 配置
      * @returns {Promise}
      */
-    sign (data, config) {
+    sign (data) {
       return new Promise((resolve, reject) => {
-        jwt.sign({ data }, config.secret, { expiresIn: config.expiresIn }, (err, token) => {
+        jwt.sign({ data }, this.jwtConfig.secret, { expiresIn: this.jwtConfig.expiresIn }, (err, token) => {
           err ? reject(err) : resolve(token)
         })
       })
@@ -25,12 +25,11 @@ module.exports = app => {
     /**
      * 校验
      * @param {Object} ctx 上下文
-     * @param {Object} config 配置
      * @returns {Promise}
      */
-    verify (ctx, config) {
+    verify (ctx) {
       return new Promise((resolve, reject) => {
-        jwt.verify(ctx.request.headers.authorization.substring(7), config.secret, (err, decoded) => {
+        jwt.verify((ctx.request.headers.authorization || '').substring(7), this.jwtConfig.secret, (err, decoded) => {
           err ? reject(err) : resolve(decoded.data)
         })
       })

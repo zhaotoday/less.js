@@ -1,7 +1,7 @@
 module.exports = app => {
   app.use((ctx, next) => {
     return next().catch(err => {
-      if (err.status === 401) {
+      if (err.name === 'JsonWebTokenError' || err.status === 401) {
         ctx.send({
           status: 401,
           error: {
