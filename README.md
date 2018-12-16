@@ -76,6 +76,19 @@ $ npm run stop
 │  │  └─ files             files 页面控制器
 ```
 
+视图（views）目录结构
+
+```
+├─ views                   视图
+│  ├─ pc                   PC 端
+│  │  ├─ articles          articles 页面视图
+│  │  └─ files             files 页面视图
+│  │
+│  ├─ mobile               移动端
+│  │  ├─ articles          articles 页面视图
+│  │  └─ files             files 页面视图
+```
+
 ### 扩展
 
 对 Koa.js 的一些扩展，用 $ 前缀命名，与 Koa.js 内置对象做区分。
