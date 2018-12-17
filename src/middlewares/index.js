@@ -13,6 +13,6 @@ module.exports = app => {
   require('./client-ip')(app)
   require('./session')(app)
 
-  const middlewaresModule = require('../utils/loadModule')(`${consts.DIRS.MIDDLEWARES}/index.js`)
+  const middlewaresModule = require('../utils/load-module')(`${consts.DIRS.MIDDLEWARES}/index.js`)
   middlewaresModule && middlewaresModule(app)
 }

@@ -90,7 +90,7 @@ module.exports = app => {
     }
   }
 
-  const serviceModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/service.js`)
+  const serviceModule = require('../utils/load-module')(`${consts.DIRS.EXTENDS}/service.js`)
 
   return serviceModule ? serviceModule(app, Service) : Service
 }

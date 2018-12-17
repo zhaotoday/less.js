@@ -31,7 +31,7 @@ module.exports = app => {
 
   app.use(router.routes()).use(router.allowedMethods())
 
-  const routerModule = require('../utils/loadModule')(`${consts.DIRS.ROUTER}/index.js`)
+  const routerModule = require('../utils/load-module')(`${consts.DIRS.ROUTER}/index.js`)
 
   routerModule && routerModule(app)
 }

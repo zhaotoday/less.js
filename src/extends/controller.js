@@ -107,7 +107,7 @@ module.exports = app => {
     }
   }
 
-  const controllerModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/controller.js`)
+  const controllerModule = require('../utils/load-module')(`${consts.DIRS.EXTENDS}/controller.js`)
 
   return controllerModule ? controllerModule(app, Controller) : Controller
 }

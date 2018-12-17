@@ -37,7 +37,7 @@ module.exports = app => {
     }
   }
 
-  const helpersModule = require('../utils/loadModule')(`${consts.DIRS.EXTENDS}/helpers.js`)
+  const helpersModule = require('../utils/load-module')(`${consts.DIRS.EXTENDS}/helpers.js`)
 
   return Object.assign(helpers, helpersModule ? helpersModule(app) : null)
 }
