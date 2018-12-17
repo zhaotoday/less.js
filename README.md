@@ -83,12 +83,12 @@ $ npm run stop
 ```
 ├─ views                   视图
 │  ├─ pc                   PC 端
-│  │  ├─ articles          articles 页面视图
-│  │  └─ files             files 页面视图
+│  │  ├─ articles.ejs      articles 页面视图
+│  │  └─ files.ejs         files 页面视图
 │  │
 │  ├─ mobile               移动端
-│  │  ├─ articles          articles 页面视图
-│  │  └─ files             files 页面视图
+│  │  ├─ articles.ejs      articles 页面视图
+│  │  └─ files.ejs         files 页面视图
 ```
 
 ### 扩展
