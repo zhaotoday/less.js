@@ -9,8 +9,8 @@ module.exports = app => {
   require('./cors')(app)
   require('./body')(app)
   require('./views')(app)
-  require('./isMobile')(app)
-  require('./clientIP')(app)
+  require('./is-mobile')(app)
+  require('./client-ip')(app)
   require('./session')(app)
 
   const middlewaresModule = require('../utils/loadModule')(`${consts.DIRS.MIDDLEWARES}/index.js`)
