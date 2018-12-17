@@ -64,16 +64,18 @@ $ npm run stop
 │  ├─ api                  接口
 │  │  └─ v1                接口版本
 │  │     ├─ admin          管理接口
-│  │     │  ├─ articles    articles 接口控制器
-│  │     │  └─ files       files 接口控制器
+│  │     │  ├─ actions     动作类接口
+│  │     │  │
+│  │     │  ├─ articles.js articles 接口控制器
+│  │     │  └─ files.js    files 接口控制器
 │  │     │
 │  │     ├─ public         公开接口（无需鉴权即可调用）
 │  │     │
 │  │     └─ some-app       某个应用的接口
 │  │
 │  ├─ web                  网站
-│  │  ├─ articles          articles 页面控制器
-│  │  └─ files             files 页面控制器
+│  │  ├─ articles.js       articles 页面控制器
+│  │  └─ files.js          files 页面控制器
 ```
 
 视图（views）目录结构

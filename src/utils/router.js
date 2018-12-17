@@ -2,17 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const router = require('koa-router')()
 const consts = require('../utils/consts')
-
-const formatURL = url => {
-  const urlItems = url.split('/')
-
-  if (urlItems[urlItems.length - 2] === 'actions') {
-    const splicedURLItems = urlItems.splice(urlItems.length - 2, 1)
-    return [...urlItems, ...splicedURLItems].join('/')
-  } else {
-    return url
-  }
-}
+const helpers = require('../utils/helpers')
 
 module.exports = app => {
   const controllerDir = path.resolve(consts.DIRS.CONTROLLERS)
@@ -26,10 +16,10 @@ module.exports = app => {
         const url = `${dir.replace(controllerDir, '').replace(/\\/g, '/')}/${basename}`
         const controller = new (require(path.join(dir, file))(app))()
 
-        if (url.indexOf('apis') === -1) {
+        if (url.indexOf('api') === -1) {
           router.get(`${url}/:id?`, controller.index)
         } else {
-          app.$resources(router, formatURL(url), controller)
+          app.$resources(router, helpers.formatRouteURL(url), controller)
         }
       } else {
         recurrence(path.join(dir, file))
