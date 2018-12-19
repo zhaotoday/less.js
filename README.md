@@ -276,7 +276,7 @@ module.exports = (app, router) => {
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
-### MySQL、Redis
+### MySQL
 
 - [21分钟MySQL基础入门](https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md)
 - [30分钟SQL指南](https://github.com/shfshanyue/blog/tree/master/Articles/SQL-Guideline)
@@ -284,6 +284,9 @@ module.exports = (app, router) => {
 - [MySql常用30种SQL查询语句优化方法](https://juejin.im/post/5ab4a5ea518825556918ebc4)
 - [一个小时学会MySQL数据库](https://www.cnblogs.com/best/p/6517755.html)
 - [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/5ae55861f265da0ba062ec71)
+
+### Redis
+
 - [Redis](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/Redis/Redis.md)
 
 ### 安全
@@ -298,3 +301,7 @@ module.exports = (app, router) => {
 - [nodejs中使用bcrypt加密](https://blog.csdn.net/original_heart/article/details/78538908?reload)
 - [Nodejs进阶：MD5入门介绍及crypto模块的应用](https://juejin.im/post/58fc1f925c497d0058fc3015)
 - [Nodejs进阶：crypto模块中你需要掌握的安全基础知识](https://segmentfault.com/a/1190000012677632)
+
+### 其他参考
+
+- [lad.js](https://github.com/ladjs/lad)
