@@ -6,6 +6,7 @@ module.exports = app => {
     constructor () {
       require('class-autobind').default(this)
       this.service = null
+      this.requiresAuth = false
       this.jwtConfig = null
     }
 

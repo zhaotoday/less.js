@@ -4,13 +4,20 @@ module.exports = (router, path, controller) => {
   methods.forEach(method => {
     if (controller[method]) {
       router[method](`${path}/:id?`, async (ctx, next) => {
-        if (controller.jwtConfig) {
-          const verifyRes = await controller.verify(ctx)
-          await controller[method](ctx, verifyRes)
+        const { id } = ctx.params
+
+        // id 存在且非法
+        if (id && !+id) {
+          next()
         } else {
-          await controller[method](ctx)
+          if (controller.requiresAuth) {
+            const verifyRes = await controller.verify(ctx)
+            await controller[method](ctx, next, verifyRes)
+          } else {
+            await controller[method](ctx, next)
+          }
+          next()
         }
-        next()
       })
     }
   })
