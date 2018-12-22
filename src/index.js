@@ -1,6 +1,8 @@
 const Koa = require('koa')
 const app = new Koa()
 
-require('./utils/init')(app)
+require('./extends')(app)
+require('./middlewares')(app)
+require('./utils/router')(app)
 
 module.exports = app
