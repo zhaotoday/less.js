@@ -25,15 +25,20 @@ $ npm install --save less.js
 $ npm run eslintfix
 $ npm run eslint
 
-# 开发
+# 开发调试
 $ npm run dev
 
 # 启动项目
-$ npm start
+$ npm run start:dev
+
+# 同步数据库模型
+$ npm run sync-models:dev
 
 # 停止项目
 $ npm run stop
 ```
+
+注：:dev 表示执行命令时调用的是开发环境的配置。dev 表示开发环境，test 表示测试环境，beta 表示预生产环境，prod 表示生产环境。
 
 ## 规范
 
@@ -49,6 +54,7 @@ $ npm run stop
 │  │  ├─ services          服务  ：用于编写业务逻辑层，比如连接数据库，调用第三方接口等
 │  │  └─ views             视图  ：用于放置模板文件，返回客户端的视图层
 │  │
+│  ├─ config               配置
 │  ├─ extends              扩展
 │  ├─ middlewares          中间件
 │  ├─ public               静态资源
@@ -60,6 +66,27 @@ $ npm run stop
 ├─ nodemon.json            nodemon 配置文件
 ├─ package.json            npm 配置文件
 ├─ processes.json          pm2 配置文件
+```
+
+配置（config）目录结构
+
+```
+├─ config                  配置
+│  ├─ base.js              基础配置
+│  ├─ development.js       开发环境配置
+│  ├─ test.js              测试环境配置
+│  ├─ beta.js              预生产环境配置
+│  └─ production.js        生产环境配置
+```
+
+扩展（extends）目录结构
+
+```
+├─ extends                 扩展
+│  ├─ controller.js        对控制器进行扩展
+│  ├─ helpers.js           对辅助函数进行扩展
+│  ├─ init.js              初始化
+│  └─ service.js           对服务进行扩展
 ```
 
 控制器（controllers）目录结构
