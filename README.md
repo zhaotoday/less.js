@@ -4,7 +4,8 @@
 
 ## 版本履历
 
-- v1.1.0 [2018-12-20] 支持根据 controllers 目录结构自动生成对应路由，无需手动配置路由；
+- v1.0.9 [2018-12-23] 支持同步数据库模型；
+- v1.0.8 [2018-12-20] 支持根据 controllers 目录结构自动生成对应路由，无需手动配置路由；
 - v1.0.5 [2018-12-10] 取消 koa-jwt 中间件，在 controller 基础类中进行 JWT 校验；
 
 ## 运行
@@ -293,6 +294,7 @@ module.exports = (app, router) => {
 - [EJS 中文文档](https://segmentfault.com/a/1190000004286562)
 - [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 - [PM2 官网](http://pm2.keymetrics.io)
+- [Node.js 最佳实践](https://github.com/i0natan/nodebestpractices/blob/master/README.chinese.md)
 
 ### 文章
 
