@@ -4,5 +4,5 @@ module.exports = app => {
    * @param {string} module 模块路劲
    * @returns {any}
    */
-  return module => require(`../modules/${module}`)
+  return module => require(`../modules/${module}`)(app)
 }
