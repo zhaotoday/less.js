@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "cos-nodejs-sdk-v5": "^2.5.4",
     "date-fns": "^1.29.0",
     "ejs": "^2.6.1",
-    "images": "^3.0.1",
+    "jimp": "^0.6.0",
     "jpush-async": "^4.0.0-rc.1",
     "jsonwebtoken": "^8.4.0",
     "koa": "^2.6.2",
