@@ -17,6 +17,6 @@ const getByteVal = (val, max) => {
   return returnValue
 }
 
-module.exports = ({ text = '', max, ellipsis = false }) => {
+module.exports = app => ({ text = '', max, ellipsis = false }) => {
   return getByteVal(striptags(text).replace(/&nbsp;|&emsp;|\n|\r/g, '').trim(), max) + (ellipsis ? '...' : '')
 }

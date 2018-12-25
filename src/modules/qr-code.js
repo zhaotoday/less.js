@@ -1,1 +1,1 @@
-module.exports = require('qrcode')
+module.exports = app => require('qrcode')

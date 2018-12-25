@@ -1,1 +1,1 @@
-module.exports = require('pify')
+module.exports = app => require('pify')

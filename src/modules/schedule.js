@@ -1,1 +1,1 @@
-module.exports = require('node-schedule')
+module.exports = app => require('node-schedule')

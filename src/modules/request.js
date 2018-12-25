@@ -1,1 +1,1 @@
-module.exports = require('request')
+module.exports = app => require('request')

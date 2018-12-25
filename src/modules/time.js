@@ -3,7 +3,7 @@ const format = require('date-fns/format')
 const DATE_FORMATTER = 'YYYY-MM-DD'
 const TIME_FORMATTER = 'YYYY-MM-DD HH:mm'
 
-module.exports = {
+module.exports = app => ({
   getDate (time) {
     return format(time, DATE_FORMATTER)
   },
@@ -13,4 +13,4 @@ module.exports = {
   format (time, formmater) {
     return format(time, formmater)
   }
-}
+})
