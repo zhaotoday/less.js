@@ -52,6 +52,6 @@ module.exports = app => {
     app[`$${rule.name}`] = recurrence(rule, rule.dir)
   })
 
-  // 初始化
-  require('./init')(app)
+  // 挂载 initialize 到 app
+  app.$initialize = require('./initialize')(app)
 }
