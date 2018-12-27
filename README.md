@@ -1,8 +1,9 @@
-### 简介
+## 简介
+
 - 项目：基于 Koa.js 的 Node.js MVC 框架。
 - 仓库地址：[https://github.com/zhaotoday/less.js](https://github.com/zhaotoday/less.js)。
 
-### 版本
+## 版本
 
 - v1.1.0 [2018-12-27] 支持 Redis 数据库，通过 ORM 框架 jugglingdb 操作 Redis；
 - v1.0.9 [2018-12-23] 支持同步 MySQL 数据库模型；
@@ -12,6 +13,10 @@
 ## 待办
 
 - 同步 MySQL 数据至 Redis；
+
+## 示例
+
+计划 2019 年 1 月份上线：[https://github.com/zhaotoday/cmsx](https://github.com/zhaotoday/cmsx)。
 
 ## 运行
 
@@ -46,9 +51,7 @@ $ npm run stop
 
 注：:dev 表示执行命令时调用的是开发环境的配置。dev 表示开发环境，test 表示测试环境，beta 表示预生产环境，prod 表示生产环境。
 
-## 规范
-
-### 目录结构
+## 目录结构
 
 整体目录结构
 
@@ -64,6 +67,7 @@ $ npm run stop
 │  ├─ extends              扩展
 │  ├─ middlewares          中间件
 │  ├─ public               静态资源
+│  ├─ redis                Redis 数据库
 │  ├─ router               URL 路由
 │  ├─ utils                工具库
 │  └─ index.js             入口：用于自定义启动时的初始化工作，比如启动 https，调用中间件、路由等
@@ -129,7 +133,7 @@ $ npm run stop
 │  │  └─ files.ejs         files 页面视图
 ```
 
-### 扩展
+## 扩展
 
 对 Koa.js 的一些扩展，用 $ 前缀命名，与 Koa.js 内置对象做区分。
 
@@ -155,10 +159,6 @@ module.exports = app => {
   }
 }
 ```
-
-### 完整示例项目
-
-完整的示例代码：[https://github.com/zhaotoday/lessjs-boilerplate](https://github.com/zhaotoday/lessjs-boilerplate)。
 
 #### 模型
 
