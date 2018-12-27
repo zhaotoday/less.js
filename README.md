@@ -1,10 +1,10 @@
-## 简介
+### 简介
 - 项目：基于 Koa.js 的 Node.js MVC 框架。
 - 仓库地址：[https://github.com/zhaotoday/less.js](https://github.com/zhaotoday/less.js)。
 
-## 版本
+### 版本
 
-- v1.1.0 [2018-12-27] 新增 Redis 数据库支持，通过 ORM 框架 jugglingdb 操作 Redis；
+- v1.1.0 [2018-12-27] 支持 Redis 数据库，通过 ORM 框架 jugglingdb 操作 Redis；
 - v1.0.9 [2018-12-23] 支持同步 MySQL 数据库模型；
 - v1.0.8 [2018-12-20] 支持根据 controllers 目录结构自动生成对应路由，无需手动配置路由；
 - v1.0.5 [2018-12-10] 取消 koa-jwt 中间件，在 controller 基础类中进行 JWT 校验；
@@ -91,7 +91,7 @@ $ npm run stop
 ├─ extends                 扩展
 │  ├─ controller.js        对控制器进行扩展
 │  ├─ helpers.js           对辅助函数进行扩展
-│  ├─ init.js              初始化
+│  ├─ initialize.js        初始化
 │  └─ service.js           对服务进行扩展
 ```
 
@@ -327,6 +327,7 @@ module.exports = (app, router) => {
 ### Redis
 
 - [Redis](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/Redis/Redis.md)
+- [Nodejs学习笔记（九）--- 与Redis的交互（mranney/node_redis）入门](https://www.cnblogs.com/zhongweiv/p/node_redis.html)
 
 ### 安全
 
