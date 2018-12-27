@@ -254,11 +254,16 @@ src/app/views/pc/articles.ejs
 
 #### 路由
 
-src/router/routes/articles.js
+src/router/index.js
 
 ```js
-module.exports = (app, router) => {
-  router.get('/articles', app.$controllers.articles.index)
+const router = require('koa-router')()
+
+module.exports = app => {
+  router.get('/', app.$controllers.web.home.index)
+  router.get('/articles/:id?', app.$controllers.web.articles.index)
+
+  app.use(router.routes()).use(router.allowedMethods())
 }
 ```
 
