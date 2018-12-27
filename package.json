@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "1.0.19",
+  "version": "1.1.2",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -38,6 +38,8 @@
     "jimp": "^0.6.0",
     "jpush-async": "^4.0.0-rc.1",
     "jsonwebtoken": "^8.4.0",
+    "jugglingdb": "^2.0.0-rc8",
+    "jugglingdb-redis": "0.0.2-2",
     "koa": "^2.6.2",
     "koa-body": "^2.6.0",
     "koa-ejs": "^4.1.2",
