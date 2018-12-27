@@ -20,8 +20,8 @@
 
 ## 运行
 
-#### Node 版本
-Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
+#### Node.js 版本
+Koa2 使用了 async/await 等新语法，请保证 Node.js 版本在 7.6 及以上。
 
 #### 命令
 
