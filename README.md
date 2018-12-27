@@ -20,10 +20,10 @@
 
 ## 运行
 
-### Node 版本
+#### Node 版本
 Koa2 使用了 async/await 等新语法，请保证 Node 版本在 7.6 及以上。
 
-### 命令
+#### 命令
 
 ```bash
 # 安装 pm2 到全局
@@ -53,7 +53,7 @@ $ npm run stop
 
 ## 目录结构
 
-整体目录结构
+#### 整体目录结构
 
 ```
 ├─ src                     源码
@@ -78,7 +78,7 @@ $ npm run stop
 ├─ processes.json          pm2 配置文件
 ```
 
-配置（config）目录结构
+#### 配置（config）目录结构
 
 ```
 ├─ config                  配置
@@ -89,7 +89,7 @@ $ npm run stop
 │  └─ production.js        生产环境配置
 ```
 
-扩展（extends）目录结构
+#### 扩展（extends）目录结构
 
 ```
 ├─ extends                 扩展
@@ -99,7 +99,7 @@ $ npm run stop
 │  └─ service.js           对服务进行扩展
 ```
 
-控制器（controllers）目录结构
+#### 控制器（controllers）目录结构
 
 ```
 ├─ controllers             控制器
@@ -120,7 +120,7 @@ $ npm run stop
 │  │  └─ files.js          files 页面控制器
 ```
 
-视图（views）目录结构
+#### 视图（views）目录结构
 
 ```
 ├─ views                   视图
@@ -269,7 +269,7 @@ module.exports = app => {
 
 ## 参考
 
-### 文档
+#### 文档
 
 - [Koa 官网](http://koajs.com)
 - [koa 中文网](http://www.koacn.com/)
@@ -284,7 +284,7 @@ module.exports = app => {
 - [PM2 官网](http://pm2.keymetrics.io)
 - [Node.js 最佳实践](https://github.com/i0natan/nodebestpractices/blob/master/README.chinese.md)
 
-### 文章
+#### 文章
 
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
 - [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/)
@@ -298,7 +298,7 @@ module.exports = app => {
 - [前后端分离之JWT用户认证](http://lion1ou.win/2017/01/18/)
 - [nodemon 基本配置与使用](https://www.cnblogs.com/JuFoFu/p/5140302.html)
 
-### MySQL
+#### MySQL
 
 - [21分钟MySQL基础入门](https://github.com/jaywcjlove/mysql-tutorial/blob/master/21-minutes-MySQL-basic-entry.md)
 - [30分钟SQL指南](https://github.com/shfshanyue/blog/tree/master/Articles/SQL-Guideline)
@@ -307,12 +307,12 @@ module.exports = app => {
 - [一个小时学会MySQL数据库](https://www.cnblogs.com/best/p/6517755.html)
 - [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/5ae55861f265da0ba062ec71)
 
-### Redis
+#### Redis
 
 - [Redis](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/Redis/Redis.md)
 - [Nodejs学习笔记（九）--- 与Redis的交互（mranney/node_redis）入门](https://www.cnblogs.com/zhongweiv/p/node_redis.html)
 
-### 安全
+#### 安全
 
 - [如何防范常见的Web攻击](http://blog.720ui.com/2016/security_web/)
 - [Web安全系列——XSS攻击](https://qiuzhenyuan.github.io/2017/11/11/Web安全系列——XSS攻击/)
@@ -325,6 +325,6 @@ module.exports = app => {
 - [Nodejs进阶：MD5入门介绍及crypto模块的应用](https://juejin.im/post/58fc1f925c497d0058fc3015)
 - [Nodejs进阶：crypto模块中你需要掌握的安全基础知识](https://segmentfault.com/a/1190000012677632)
 
-### 其他参考
+#### 其他参考
 
 - [lad.js](https://github.com/ladjs/lad)
