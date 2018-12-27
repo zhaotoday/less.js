@@ -1,11 +1,11 @@
 const consts = require('../utils/consts')
 
 module.exports = app => {
-  return () => {
+  return async () => {
     const initializeModule = require('../utils/load-module')(`${consts.DIRS.EXTENDS}/initialize.js`)
 
     if (initializeModule) {
-      initializeModule(app)
+      await initializeModule(app)
     }
 
     return app
