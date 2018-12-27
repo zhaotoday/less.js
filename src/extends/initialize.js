@@ -7,7 +7,5 @@ module.exports = app => {
     if (initializeModule) {
       await initializeModule(app)
     }
-
-    return app
   }
 }
