@@ -5,6 +5,7 @@
 
 ## 版本
 
+- v1.1.4 [2018-12-29] 支持 URL Rewrite；
 - v1.1.0 [2018-12-27] 支持 Redis 数据库，通过 ORM 框架 jugglingdb 操作 Redis；
 - v1.0.9 [2018-12-23] 支持同步 MySQL 数据库模型；
 - v1.0.8 [2018-12-20] 支持根据 controllers 目录结构自动生成对应路由，无需手动配置路由；
@@ -235,7 +236,7 @@ module.exports = app => {
 
   return class extends app.$Controller {
     async index (ctx, next) {
-      ctx.response.body = ctx.send({
+      ctx.send({
         status: 200,
         data: await service.find({ offset: 0, limit: 10 })
       })
