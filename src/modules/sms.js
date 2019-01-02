@@ -1,3 +1,6 @@
 const QcloudSms = require('qcloudsms_js')
 
-module.exports = app => QcloudSms(app.$config.SMS.APPID, app.$config.SMS.APPKEY)
+module.exports = app => {
+  const { APPID, APPKEY } = app.$config.SMS
+  return QcloudSms(APPID, APPKEY)
+}

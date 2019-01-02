@@ -1,19 +1,20 @@
 const Schema = require('jugglingdb').Schema
 
 module.exports = app => {
+  const { HOST, PASSWORD, DB, PORT } = app.$config.REDIS
   const schema = new Schema('redis', {
-    host: app.$config.REDIS.HOST,
-    password: app.$config.REDIS.PASSWORD,
-    port: app.$config.REDIS.PORT
+    host: HOST,
+    password: PASSWORD,
+    port: PORT
   })
 
   return {
     Schema,
     defineModel (modelName, attributes) {
-      const Model = schema.define(`${app.$config.REDIS.DB}:${modelName}`, attributes)
+      const Model = schema.define(`${DB}:${modelName}`, attributes)
 
       Model.prototype.expiresIn = function (time) {
-        schema.client.expire(`${app.$config.REDIS.DB}:${modelName}:${this.id}`, time / 1000)
+        schema.client.expire(`${DB}:${modelName}:${this.id}`, time / 1000)
 
         return this
       }
