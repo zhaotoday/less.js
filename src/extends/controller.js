@@ -1,7 +1,8 @@
 const consts = require('../utils/consts')
-const jwt = require('jsonwebtoken')
 
 module.exports = app => {
+  const jwt = require('../modules/jwt')(app)
+
   class Controller {
     constructor () {
       require('class-autobind').default(this)
@@ -16,11 +17,7 @@ module.exports = app => {
      * @returns {Promise}
      */
     sign (data) {
-      return new Promise((resolve, reject) => {
-        jwt.sign({ data }, this.jwtConfig.secret, { expiresIn: this.jwtConfig.expiresIn }, (err, token) => {
-          err ? reject(err) : resolve(token)
-        })
-      })
+      return jwt.sign({ data }, this.jwtConfig.secret, { expiresIn: this.jwtConfig.expiresIn })
     }
 
     /**
@@ -29,11 +26,7 @@ module.exports = app => {
      * @returns {Promise}
      */
     verify (ctx) {
-      return new Promise((resolve, reject) => {
-        jwt.verify((ctx.request.headers.authorization || '').substring(7), this.jwtConfig.secret, (err, decoded) => {
-          err ? reject(err) : resolve(decoded.data)
-        })
-      })
+      return jwt.verify((ctx.request.headers.authorization || '').substring(7), this.jwtConfig.secret)
     }
 
     /**
