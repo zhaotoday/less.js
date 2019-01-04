@@ -7,11 +7,16 @@ module.exports = app => {
      * @returns {Object}
      */
     formatQuery (query) {
-      const { offset = 0, limit = 10, where = '{}', order = JSON.stringify([['id', 'DESC']]) } = query
+      const {
+        offset = 0,
+        limit = app.$config.PAGE_SIZE || -1,
+        where = '{}',
+        order = JSON.stringify([['id', 'DESC']])
+      } = query
 
       return {
         offset: +offset,
-        limit: +limit,
+        limit: +limit === -1 ? undefined : +limit,
         where: (where => {
           let ret = {}
 

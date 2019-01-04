@@ -11,14 +11,14 @@ module.exports = app => {
      * 查询
      * @returns {Promise}
      */
-    async find ({ id = '', attributes = null, offset = 0, limit = 10, where = {}, order = [['id', 'DESC']] } = {}) {
+    async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, where = {}, order = [['id', 'DESC']] } = {}) {
       if (id) {
         return this.model.findById(id)
       } else {
         if (this.hasOrder) {
           order = [['order', 'DESC']]
         }
-        return this.model.findAll({ attributes, offset, limit, where, order })
+        return this.model.findAll({ attributes, offset, limit: limit === -1 ? undefined : limit, where, order })
       }
     }
 
