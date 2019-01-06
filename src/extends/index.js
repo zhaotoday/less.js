@@ -28,6 +28,9 @@ module.exports = app => {
   // 挂载 config 到 app
   app.$config = require('./config')(app)
 
+  // 挂载 consts 到 app
+  app.$consts = require('../utils/consts')
+
   // 挂载 helpers 到 app
   app.$helpers = require('./helpers')(app)
 

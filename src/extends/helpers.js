@@ -17,17 +17,7 @@ module.exports = app => {
       return {
         offset: +offset,
         limit: +limit === -1 ? undefined : +limit,
-        where: (where => {
-          let ret = {}
-
-          Object.keys(where).forEach(key => {
-            if (Object.keys(where[key]).length) {
-              ret[key] = where[key]
-            }
-          })
-
-          return ret
-        })(JSON.parse(where)),
+        where: JSON.parse(where),
         order: JSON.parse(order)
       }
     },
