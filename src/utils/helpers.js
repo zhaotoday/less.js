@@ -1,5 +1,5 @@
 module.exports = {
-  toCamelCase (str) {
+  toLowerCamelCase (str) {
     return str.replace(/-([a-z])/g, (all, letter) => letter.toUpperCase())
   },
   formatRouteURL (url) {

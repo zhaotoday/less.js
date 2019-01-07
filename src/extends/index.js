@@ -10,7 +10,7 @@ module.exports = app => {
 
     fs.readdirSync(dir).forEach(file => {
       const extname = path.extname(file)
-      const basename = helpers.toCamelCase(path.basename(file, extname))
+      const basename = helpers.toLowerCamelCase(path.basename(file, extname))
 
       if (extname === '.js') {
         // model 是一个类的实例，与 Service、Controller 分开处理
