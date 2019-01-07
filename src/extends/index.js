@@ -13,10 +13,12 @@ module.exports = app => {
       const basename = helpers.toLowerCamelCase(path.basename(file, extname))
 
       if (extname === '.js') {
-        // model 是一个类的实例，与 Service、Controller 分开处理
-        target[basename] = rule.name === 'models'
-          ? require(path.join(dir, file))(app)
-          : new (require(path.join(dir, file))(app))()
+        // Model 与 Service、Controller 分开处理
+        if (rule.name === 'models') {
+          target[helpers.capitalize(basename)] = require(path.join(dir, file))(app)
+        } else {
+          target[basename] = new (require(path.join(dir, file))(app))()
+        }
       } else {
         target[basename] = recurrence(rule, path.join(dir, file))
       }
