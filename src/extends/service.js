@@ -3,7 +3,7 @@ const consts = require('../utils/consts')
 module.exports = app => {
   class Service {
     constructor () {
-      this.model = null
+      this.Model = null
       this.hasOrder = false
     }
 
@@ -13,12 +13,12 @@ module.exports = app => {
      */
     async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, where = {}, order = [['id', 'DESC']] } = {}) {
       if (id) {
-        return this.model.findById(id)
+        return this.Model.findById(id)
       } else {
         if (this.hasOrder) {
           order = [['order', 'DESC']]
         }
-        return this.model.findAll({ attributes, offset, limit: limit === -1 ? undefined : limit, where, order })
+        return this.Model.findAll({ attributes, offset, limit: limit === -1 ? undefined : limit, where, order })
       }
     }
 
@@ -30,7 +30,7 @@ module.exports = app => {
       if (id) {
         where = { ...where, id: { $gt: id } }
       }
-      return (await this.model.findAll({ attributes, limit: 1, where, order }))[0] || null
+      return (await this.Model.findAll({ attributes, limit: 1, where, order }))[0] || null
     }
 
     /**
@@ -42,7 +42,7 @@ module.exports = app => {
         where = { ...where, id: { $lt: id } }
       }
 
-      return (await this.model.findAll({ attributes, limit: 1, where, order }))[0] || null
+      return (await this.Model.findAll({ attributes, limit: 1, where, order }))[0] || null
     }
 
     /**
@@ -50,7 +50,7 @@ module.exports = app => {
      * @returns {Promise}
      */
     async destroy ({ id }) {
-      return this.model.destroy({
+      return this.Model.destroy({
         where: { id }
       })
     }
@@ -61,14 +61,14 @@ module.exports = app => {
      */
     async create ({ body = null } = {}) {
       if (this.hasOrder) {
-        const findPrevRes = await this.model.findAll({
+        const findPrevRes = await this.Model.findAll({
           limit: 1,
           order: [['id', 'desc']]
         })
         body = { ...body, order: findPrevRes[0] ? findPrevRes[0].id + 1 : 1 }
       }
 
-      return this.model.create(body)
+      return this.Model.create(body)
     }
 
     /**
@@ -76,7 +76,7 @@ module.exports = app => {
      * @returns {Promise}
      */
     async update ({ id, body = null } = {}) {
-      return this.model.update(body, {
+      return this.Model.update(body, {
         where: { id }
       })
     }
@@ -86,7 +86,7 @@ module.exports = app => {
      * @returns {Promise}
      */
     async count ({ where = {} } = {}) {
-      return this.model.count({ where })
+      return this.Model.count({ where })
     }
   }
 
