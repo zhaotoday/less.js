@@ -10,9 +10,9 @@ module.exports = {
 
     if (urlItems[urlItems.length - 2] === 'actions') {
       const splicedURLItems = urlItems.splice(urlItems.length - 2, 1)
-      return this.toCamelCase([...urlItems, ...splicedURLItems].join('/'))
+      return this.toLowerCamelCase([...urlItems, ...splicedURLItems].join('/'))
     } else {
-      return this.toCamelCase(url)
+      return this.toLowerCamelCase(url)
     }
   }
 }
