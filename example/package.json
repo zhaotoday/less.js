@@ -1,0 +1,75 @@
+{
+  "name": "cmsx",
+  "version": "0.0.2",
+  "description": "A boilerplate for less.js.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --debug",
+    "stop": "pm2 stop cmsx",
+    "start:dev": "pm2 start processes.json --env development",
+    "start:test": "pm2 start processes.json --env test",
+    "start:beta": "pm2 start processes.json --env beta",
+    "start:prod": "pm2 start processes.json --env production",
+    "sync-models:dev": "better-npm-run sync-models:dev",
+    "sync-models:test": "better-npm-run sync-models:test",
+    "sync-models:beta": "better-npm-run sync-models:beta",
+    "sync-models:prod": "better-npm-run sync-models:prod",
+    "eslintfix": "eslint src/**/*.js --fix",
+    "eslint": "eslint src/**/*.js"
+  },
+  "betterScripts": {
+    "sync-models:dev": {
+      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "sync-models:test": {
+      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    "sync-models:beta": {
+      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "env": {
+        "NODE_ENV": "beta"
+      }
+    },
+    "sync-models:prod": {
+      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaotoday/less.js.git"
+  },
+  "keywords": [
+    "koa",
+    "mvc"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaotoday/less.js/issues"
+  },
+  "homepage": "https://github.com/zhaotoday/less.js#readme",
+  "devDependencies": {
+    "better-npm-run": "^0.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dayjs": "^1.5.19",
+    "less.js": "^1.1.10"
+  }
+}

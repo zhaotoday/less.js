@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "name": "cmsx",
+      "script": "./src/index.js",
+      "watch": [
+        "src"
+      ],
+      "ignore_watch": [
+        "node_modules",
+        "logs"
+      ],
+      "env_development": {
+        "NODE_ENV": "development"
+      },
+      "env_test": {
+        "NODE_ENV": "test"
+      },
+      "env_beta": {
+        "NODE_ENV": "beta"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
