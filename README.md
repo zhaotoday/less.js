@@ -17,7 +17,23 @@
 
 ## 示例
 
-计划 2019 年 1 月份上线：[https://github.com/zhaotoday/cmsx](https://github.com/zhaotoday/cmsx)。
+#### 示例代码
+
+请查看 [example](https://github.com/zhaotoday/less.js/tree/master/example) 文件夹。
+
+#### 管理后台代码
+
+请访问：[https://github.com/zhaotoday/iview](https://github.com/zhaotoday/iview)。
+
+#### 线上示例
+
+```
+https://admin.cmsx.cn/
+账号：admin
+密码：123456
+```
+
+注：按 F12 打开 Chrome 开发者工具查看接口请求。
 
 ## 运行
 
