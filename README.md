@@ -23,12 +23,13 @@
 
 #### 管理后台代码
 
-请访问：[https://github.com/zhaotoday/iview](https://github.com/zhaotoday/iview)。
+请访问 [https://github.com/zhaotoday/iview](https://github.com/zhaotoday/iview)。
 
 #### 线上示例
 
+请访问 [https://admin.cmsx.cn/](https://admin.cmsx.cn/)。
+
 ```
-https://admin.cmsx.cn/
 账号：admin
 密码：123456
 ```
