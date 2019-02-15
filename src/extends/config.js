@@ -1,8 +1,5 @@
 const consts = require('../utils/consts')
 
-// APP KEYS
-const APP_KEYS = {}
-
 // JWT
 const JWT = {}
 
@@ -15,12 +12,6 @@ const CORS = {
 
 // 数据库
 const DB = {}
-
-// 短信
-const SMS = {}
-
-// 推送
-const PUSH = {}
 
 // SESSION
 const SESSION = {
@@ -37,12 +28,9 @@ module.exports = app => {
   const configModule = require('../utils/load-module')(`${consts.DIRS.CONFIG}/index.js`)
 
   return Object.assign({
-    APP_KEYS,
     JWT,
     CORS,
     DB,
-    SMS,
-    PUSH,
     SESSION
   }, configModule ? configModule(app) : null)
 }

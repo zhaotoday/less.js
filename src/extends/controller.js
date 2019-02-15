@@ -17,7 +17,8 @@ module.exports = app => {
      * @returns {Promise}
      */
     sign (data) {
-      return jwt.sign({ data }, this.jwtConfig.SECRET, { expiresIn: this.jwtConfig.EXPIRES_IN })
+      const { SECRET, EXPIRES_IN } = this.jwtConfig
+      return jwt.sign({ data }, SECRET, { expiresIn: EXPIRES_IN })
     }
 
     /**
@@ -26,7 +27,8 @@ module.exports = app => {
      * @returns {Promise}
      */
     verify (ctx) {
-      return jwt.verify((ctx.request.headers.authorization || '').substring(7), this.jwtConfig.SECRET)
+      const { SECRET } = this.jwtConfig
+      return jwt.verify((ctx.request.headers.authorization || '').substring(7), SECRET)
     }
 
     /**

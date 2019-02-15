@@ -10,7 +10,6 @@ module.exports = app => {
   require('./body')(app)
   require('./views')(app)
   require('./is-mobile')(app)
-  require('./session')(app)
   require('./rewrite')(app)
   require('./attachment')(app)
   require('./redirect')(app)
