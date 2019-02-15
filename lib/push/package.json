@@ -1,0 +1,12 @@
+{
+  "name": "less.js-push",
+  "version": "0.0.1",
+  "description": "less.js push",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "cos"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC"
+}

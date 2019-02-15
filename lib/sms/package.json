@@ -1,0 +1,12 @@
+{
+  "name": "less.js-sms",
+  "version": "0.0.1",
+  "description": "less.js sms",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "cos"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC"
+}
