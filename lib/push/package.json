@@ -5,8 +5,11 @@
   "main": "src/index.js",
   "scripts": {},
   "keywords": [
-    "cos"
+    "push"
   ],
   "author": "zhaojintian",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jpush-async": "^4.0.1"
+  }
 }
