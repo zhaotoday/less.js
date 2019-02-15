@@ -10,7 +10,7 @@ module.exports = app => ({
   getTime (time) {
     return format(time, TIME_FORMATTER)
   },
-  format (time, formmater) {
-    return format(time, formmater)
+  format (time, formatter) {
+    return format(time, formatter)
   }
 })
