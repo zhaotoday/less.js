@@ -8,5 +8,9 @@
     "cos"
   ],
   "author": "zhaojintian",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.5.6",
+    "pify": "^4.0.1"
+  }
 }
