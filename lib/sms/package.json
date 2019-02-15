@@ -5,8 +5,11 @@
   "main": "src/index.js",
   "scripts": {},
   "keywords": [
-    "cos"
+    "sms"
   ],
   "author": "zhaojintian",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "qcloudsms_js": "^0.1.1"
+  }
 }
