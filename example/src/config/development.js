@@ -1,15 +1,17 @@
 // 监听端口
 const PORT = 3002
 
-// 基础地址
-const BASE_URL = `http://localhost:${PORT}`
-
-// 前端资源 CDN 地址，开发环境下配置成网站构建工具 dev 时的地址
+// 前端资源 CDN 地址
 const CDN = `http://localhost:${PORT}`
+// const CDN = 'https://api.cmsx.cn'
 
 // JWT
 const JWT = {
   ADMIN: {
+    SECRET: 'cmsxTWuglrEgY^^q3m)5',
+    EXPIRES_IN: '90d'
+  },
+  WX: {
     SECRET: 'cmsxTWuglrEgY^^q3m)5',
     EXPIRES_IN: '90d'
   }
@@ -18,11 +20,11 @@ const JWT = {
 // 数据库
 const DB = {
   database: 'cmsx-dev',
-  username: 'cmsx-dev',
-  password: 'sEMaPmmNSBPdKr22',
+  username: 'root',
+  password: 'cmsxV3lFXZQ8@Yv^aSUK',
   options: {
-    host: '127.0.0.1',
-    port: 3306,
+    host: 'cdb-pf8wjch9.gz.tencentcdb.com',
+    port: 10020,
     dialect: 'mysql',
     define: {
       underscored: false
@@ -30,10 +32,16 @@ const DB = {
   }
 }
 
+// 小程序
+const MP = {
+  appid: '',
+  secret: ''
+}
+
 module.exports = {
   PORT,
-  BASE_URL,
   CDN,
   JWT,
-  DB
+  DB,
+  MP
 }

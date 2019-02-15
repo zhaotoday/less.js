@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "dayjs": "^1.5.19",
-    "less.js": "^1.1.10"
+    "less.js": "^2.0.0",
+    "mp-server": "0.0.4"
   }
 }

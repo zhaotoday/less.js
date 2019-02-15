@@ -1,3 +1,1 @@
-module.exports = app => {
-  require('./redirect')(app)
-}
+module.exports = app => {}

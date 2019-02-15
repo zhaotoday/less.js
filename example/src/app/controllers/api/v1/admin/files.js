@@ -1,5 +1,4 @@
 const fs = require('fs')
-const dayjs = require('dayjs')
 
 module.exports = app => {
   return class extends require('./base')(app) {
@@ -12,7 +11,8 @@ module.exports = app => {
     async post (ctx) {
       const { name, path, type, size } = ctx.request.body.files.file
       const uuid = app.$module('uuid')
-      const date = dayjs().format('YYYY-MM-DD')
+      const time = app.$module('time')
+      const date = time.getDate()
       const reader = fs.createReadStream(path)
       const ext = name.split('.').pop()
       const saveDir = `${app.$consts.DIRS.PUBLIC}/files/${date}`
