@@ -6,11 +6,7 @@ const REWRITES = {
   API: []
 }
 
-// APP KEYS
-const APP_KEYS = ['keys', 'keykeys']
-
 module.exports = {
   PAGE_SIZE,
-  REWRITES,
-  APP_KEYS
+  REWRITES
 }

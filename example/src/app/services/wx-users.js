@@ -26,6 +26,18 @@ module.exports = app => {
         encryptedData,
         iv
       })
+      const userInfo = {
+        openId,
+        unionId,
+        nickName,
+        gender,
+        language,
+        city,
+        province,
+        country,
+        avatarUrl
+      }
+      // TODO: 加入锁机制
       let findRes = await this.find({
         where: {
           openId: {
@@ -35,19 +47,11 @@ module.exports = app => {
       })
 
       if (!findRes.length) {
-        await this.create({
-          body: {
-            openId,
-            unionId,
-            nickName,
-            gender,
-            language,
-            city,
-            province,
-            country,
-            avatarUrl
-          }
-        })
+        // 不存在则新增用户
+        await this.create({ body: userInfo })
+      } else {
+        // 存在则更新用户信息
+        await this.update({ id: findRes[0].id, body: userInfo })
       }
 
       findRes = await this.find({
