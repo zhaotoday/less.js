@@ -13,10 +13,10 @@ module.exports = app => {
       const basename = helpers.toLowerCamelCase(path.basename(file, extname))
 
       if (extname === '.js') {
-        // Model 与 Service、Controller 分开处理
+        // Model
         if (rule.name === 'models') {
           target[helpers.capitalize(basename)] = require(path.join(dir, file))(app)
-        } else {
+        } else if (rule.name === 'services') {  // Service
           target[basename] = new (require(path.join(dir, file))(app))()
         }
       } else {
@@ -59,4 +59,7 @@ module.exports = app => {
 
   // 挂载 initialize 到 app
   app.$initialize = require('./initialize')(app)
+
+  // 挂载 require 到 app
+  app.$require = require('./require')
 }
