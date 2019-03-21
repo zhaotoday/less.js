@@ -10,7 +10,13 @@ module.exports = app => {
           }
         })
       } else {
-        throw err
+        ctx.send({
+          status: 500,
+          error: {
+            code: '',
+            message: '服务器错误'
+          }
+        })
       }
     })
   })
