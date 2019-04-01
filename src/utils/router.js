@@ -8,6 +8,8 @@ module.exports = app => {
   const controllerDir = path.resolve(consts.DIRS.CONTROLLERS)
 
   const recurrence = dir => {
+    const target = {}
+
     fs.readdirSync(dir).forEach(file => {
       const extname = path.extname(file)
       const basename = path.basename(file, extname)
@@ -21,13 +23,17 @@ module.exports = app => {
         } else {
           app.$resources(router, helpers.formatRouteURL(url), controller)
         }
+
+        target[basename] = controller
       } else {
-        recurrence(path.join(dir, file))
+        target[basename] = recurrence(path.join(dir, file))
       }
     })
+
+    return target
   }
 
-  recurrence(controllerDir)
+  app.$controllers = recurrence(controllerDir)
 
   app.use(router.routes()).use(router.allowedMethods())
 

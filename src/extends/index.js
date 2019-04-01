@@ -16,7 +16,7 @@ module.exports = app => {
         // Model
         if (rule.name === 'models') {
           target[helpers.capitalize(basename)] = require(path.join(dir, file))(app)
-        } else if (rule.name === 'services') {  // Service
+        } else if (rule.name === 'services') { // Service
           target[basename] = new (require(path.join(dir, file))(app))()
         }
       } else {
