@@ -49,10 +49,14 @@ module.exports = app => {
      * 删除
      * @returns {Promise}
      */
-    async destroy ({ id }) {
-      return this.Model.destroy({
-        where: { id }
-      })
+    async destroy ({ id, ids } = {}) {
+      const where = id
+        ? { id }
+        : {
+          id: { $in: ids.split(',') }
+        }
+
+      return this.Model.destroy({ where })
     }
 
     /**
