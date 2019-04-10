@@ -49,11 +49,11 @@ module.exports = app => {
      * 删除
      * @returns {Promise}
      */
-    async destroy ({ id, ids } = {}) {
-      const where = id
+    async destroy ({ id } = {}) {
+      const where = id.includes(',')
         ? { id }
         : {
-          id: { $in: ids.split(',') }
+          id: { $in: id.split(',') }
         }
 
       return this.Model.destroy({ where })

@@ -98,10 +98,7 @@ module.exports = app => {
      * @private
      */
     async _del (ctx) {
-      await this.service.destroy({
-        id: ctx.params.id,
-        ids: ctx.params.ids
-      })
+      await this.service.destroy({ id: ctx.params.id })
       ctx.send({ status: 204 })
     }
   }
