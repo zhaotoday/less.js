@@ -51,10 +51,10 @@ module.exports = app => {
      */
     async destroy ({ id } = {}) {
       const where = id.includes(',')
-        ? { id }
-        : {
+        ? {
           id: { $in: id.split(',') }
         }
+        : { id }
 
       return this.Model.destroy({ where })
     }
