@@ -57,7 +57,7 @@ Koa2 使用了 async/await 等新语法，请保证 Node.js 版本在 7.6 及以
 }
 ```
 
-修改 processes.js，将 {app-name} 改成自己的：
+修改 processes.json，将 {app-name} 改成自己的：
 
 ```js
 {
