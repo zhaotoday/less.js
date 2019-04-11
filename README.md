@@ -5,6 +5,7 @@
 
 ## 版本
 
+- v2.0.9 [2019-04-11] 性能优化；
 - v2.0.0 [2019-02-15] 取消内置第三方 SDK；
 - v1.1.4 [2018-12-29] 支持 URL Rewrite；
 - v1.1.0 [2018-12-27] 支持 Redis 数据库，通过 ORM 框架 jugglingdb 操作 Redis；
@@ -41,6 +42,34 @@
 
 #### Node.js 版本
 Koa2 使用了 async/await 等新语法，请保证 Node.js 版本在 7.6 及以上。
+
+#### 应用配置
+
+修改 package.json，将 {app-name} 改成自己的：
+
+```json
+{
+  ...,
+  "scripts": {
+    "stop": "pm2 stop {app-name}"
+  },
+  ...
+}
+```
+
+修改 processes.js，将 {app-name} 改成自己的：
+
+``js
+{
+  "apps": [
+    {
+      "name": "{app-name}",
+      ...
+    },
+    ...
+  ]
+}
+```
 
 #### 命令
 
