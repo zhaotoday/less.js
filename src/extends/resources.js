@@ -3,7 +3,7 @@ module.exports = (router, path, controller) => {
 
   methods.forEach(method => {
     if (controller[method]) {
-      router[method](`${path}/:id?`, async (ctx, next) => {
+      router[method](method === 'post' ? path : `${path}/:id?`, async (ctx, next) => {
         if (controller.requiresAuth) {
           const verifyRes = await controller.verify(ctx)
           await controller[method](ctx, next, verifyRes)
