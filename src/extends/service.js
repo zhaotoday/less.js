@@ -13,7 +13,7 @@ module.exports = app => {
      */
     async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, where = {}, order = [['id', 'DESC']] } = {}) {
       if (id) {
-        return this.Model.findById(id)
+        return this.Model.findByPk(id)
       } else {
         if (this.hasOrder && JSON.stringify(order) === JSON.stringify([['id', 'DESC']])) {
           order = [['order', 'DESC']]
@@ -79,9 +79,9 @@ module.exports = app => {
      * 更新
      * @returns {Promise}
      */
-    async update ({ id, body = null } = {}) {
+    async update ({ id, body = null, where } = {}) {
       return this.Model.update(body, {
-        where: { id }
+        where: id ? { id } : where
       })
     }
 

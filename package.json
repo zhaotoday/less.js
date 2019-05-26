@@ -1,6 +1,6 @@
 {
   "name": "less.js",
-  "version": "2.0.13",
+  "version": "2.0.17",
   "description": "A write less, do more MVC framework based on Koa.",
   "main": "src/index.js",
   "scripts": {
@@ -48,7 +48,7 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "pify": "^4.0.1",
-    "sequelize": "^5.3.5",
+    "sequelize": "^5.8.6",
     "uuid": "^3.3.2"
   }
 }
