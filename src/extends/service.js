@@ -18,7 +18,14 @@ module.exports = app => {
         if (this.hasOrder && JSON.stringify(order) === JSON.stringify([['id', 'DESC']])) {
           order = [['order', 'DESC']]
         }
-        return this.Model.findAll({ attributes, offset, limit: limit === -1 ? undefined : limit, where, order })
+        return this.Model.findAll({
+          include: this.include,
+          attributes,
+          offset,
+          limit: limit === -1 ? undefined : limit,
+          where,
+          order
+        })
       }
     }
 
