@@ -83,6 +83,14 @@ module.exports = app => {
     }
 
     /**
+     * 批量新增
+     * @returns {Promise}
+     */
+    bulkCreate ({ bodies = [] } = {}) {
+      return this.Model.bulkCreate(bodies)
+    }
+
+    /**
      * 更新
      * @returns {Promise}
      */
