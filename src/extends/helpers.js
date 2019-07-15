@@ -29,6 +29,11 @@ module.exports = app => {
       }
 
       return ret
+    },
+    sleep (n) {
+      return new Promise(resolve => {
+        setTimeout(resolve, n)
+      })
     }
   }
 
