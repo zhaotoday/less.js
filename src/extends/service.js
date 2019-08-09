@@ -13,7 +13,9 @@ module.exports = app => {
      */
     async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, where = {}, order = [['id', 'DESC']] } = {}) {
       if (id) {
-        return this.Model.findByPk(id)
+        return this.Model.findByPk(id, {
+          include: this.include
+        })
       } else {
         if (this.hasOrder && JSON.stringify(order) === JSON.stringify([['id', 'DESC']])) {
           order = [['order', 'DESC']]
