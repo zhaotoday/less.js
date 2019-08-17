@@ -9,6 +9,14 @@ module.exports = app => {
             message: '鉴权失败'
           }
         })
+      } else if (err.status === 403) {
+        ctx.send({
+          status: 403,
+          error: {
+            code: 'PERMISSION/DENIED',
+            message: '权限不足'
+          }
+        })
       } else {
         ctx.send({
           status: 500,
