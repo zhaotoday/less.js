@@ -73,9 +73,13 @@ module.exports = app => {
      * @private
      */
     async _post (ctx) {
+      const { bodies } = ctx.request.body
+
       ctx.send({
         status: 201,
-        data: await this.service.create({ body: ctx.request.body })
+        data: bodies
+          ? await this.service.bulkCreate({ bodies })
+          : await this.service.create({ body: ctx.request.body })
       })
     }
 
