@@ -1,7 +1,15 @@
 module.exports = app => {
   app.use((ctx, next) => {
     return next().catch(err => {
-      if (err.name === 'JsonWebTokenError' || err.status === 401) {
+      if (err.original && err.original.errno === 1451) {
+        ctx.send({
+          status: 501,
+          error: {
+            code: '',
+            message: '请先删除关联数据'
+          }
+        })
+      } else if (err.name === 'JsonWebTokenError' || err.status === 401) {
         ctx.send({
           status: 401,
           error: {
