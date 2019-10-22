@@ -49,14 +49,14 @@ module.exports = app => {
      * @private
      */
     async _get (ctx) {
+      const { attributes, offset, limit, where, order } = app.$helpers.formatQuery(ctx.request.query)
+
       if (ctx.params.id) {
         ctx.send({
           status: 200,
-          data: await this.service.find({ id: ctx.params.id })
+          data: await this.service.find({ id: ctx.params.id, attributes })
         })
       } else {
-        const { attributes, offset, limit, where, order } = app.$helpers.formatQuery(ctx.request.query)
-
         ctx.send({
           status: 200,
           data: {
