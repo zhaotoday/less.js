@@ -8,6 +8,7 @@ module.exports = app => {
      */
     formatQuery (query) {
       const {
+        attributes = 'null',
         offset = 0,
         limit = app.$config.PAGE_SIZE || -1,
         where = '{}',
@@ -15,6 +16,7 @@ module.exports = app => {
       } = query
 
       return {
+        attributes: JSON.parse(attributes),
         offset: +offset,
         limit: +limit === -1 ? undefined : +limit,
         where: JSON.parse(where),
