@@ -14,8 +14,9 @@ module.exports = app => {
     async find ({ id = '', include = null, attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, group = null, where = {}, order = [['id', 'DESC']] } = {}) {
       include = include
         ? include.map(item => ({
+          ...item,
           model: app.$models[item.model],
-          as: item.as
+          as: item.as,
         }))
         : null
 
