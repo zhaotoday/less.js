@@ -8,17 +8,21 @@ module.exports = app => {
      */
     formatQuery (query) {
       const {
+        include = 'null',
         attributes = 'null',
         offset = 0,
         limit = app.$config.PAGE_SIZE || -1,
+        group = 'null',
         where = '{}',
         order = JSON.stringify([['id', 'DESC']])
       } = query
 
       return {
+        include: JSON.parse(include),
         attributes: JSON.parse(attributes),
         offset: +offset,
         limit: +limit === -1 ? undefined : +limit,
+        group: JSON.parse(group),
         where: JSON.parse(where),
         order: JSON.parse(order)
       }

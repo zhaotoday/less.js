@@ -11,10 +11,17 @@ module.exports = app => {
      * 查询
      * @returns {Promise}
      */
-    async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, group = null, where = {}, order = [['id', 'DESC']] } = {}) {
+    async find ({ id = '', include = null, attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, group = null, where = {}, order = [['id', 'DESC']] } = {}) {
+      include = include
+        ? include.map(item => ({
+          model: app.$models[item.model],
+          as: item.as
+        }))
+        : null
+
       if (id) {
         return this.Model.findByPk(id, {
-          include: this.include,
+          include: include || this.include,
           attributes
         })
       } else {
@@ -22,7 +29,7 @@ module.exports = app => {
           order = [['order', 'DESC']]
         }
         return this.Model.findAll({
-          include: this.include,
+          include: include || this.include,
           attributes,
           offset,
           limit: limit === -1 ? undefined : limit,
