@@ -11,7 +11,7 @@ module.exports = app => {
      * 查询
      * @returns {Promise}
      */
-    async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, where = {}, order = [['id', 'DESC']] } = {}) {
+    async find ({ id = '', attributes = null, offset = 0, limit = app.$config.PAGE_SIZE || 10, group = null, where = {}, order = [['id', 'DESC']] } = {}) {
       if (id) {
         return this.Model.findByPk(id, {
           include: this.include,
@@ -26,6 +26,7 @@ module.exports = app => {
           attributes,
           offset,
           limit: limit === -1 ? undefined : limit,
+          group,
           where,
           order
         })
