@@ -18,11 +18,7 @@ module.exports = app => {
         const url = `${dir.replace(controllerDir, '').replace(/\\/g, '/')}/${basename}`
         const controller = new (require(path.join(dir, file))(app))()
 
-        if (url.indexOf('api') === -1) {
-          router.get(`${url}/:id?`, controller.index)
-        } else {
-          app.$resources(router, helpers.formatRouteURL(url), controller)
-        }
+        app.$resources(router, helpers.formatRouteURL(url), controller)
 
         target[basename] = controller
       } else {

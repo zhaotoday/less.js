@@ -1,5 +1,8 @@
 const consts = require('../utils/consts')
 
+// URL 重写
+const REWRITES = []
+
 // JWT
 const JWT = {}
 
@@ -15,5 +18,5 @@ const DB = {}
 
 module.exports = app => {
   const configModule = require('../utils/load-module')(`${consts.DIRS.CONFIG}/index.js`)
-  return Object.assign({ JWT, CORS, DB }, configModule ? configModule(app) : null)
+  return Object.assign({ REWRITES, JWT, CORS, DB }, configModule ? configModule(app) : null)
 }
