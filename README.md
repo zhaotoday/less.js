@@ -5,6 +5,7 @@
 
 ## 版本
 
+- v3.0.1 [2019-10-30] 重构、性能优化、废除对视图层（view）的支持；
 - v2.0.9 [2019-04-11] 性能优化；
 - v2.0.0 [2019-02-15] 取消内置第三方 SDK；
 - v1.1.4 [2018-12-29] 支持 URL Rewrite；
@@ -150,35 +151,17 @@ $ npm run stop
 #### 控制器（controllers）目录结构
 
 ```
-├─ controllers             控制器
-│  ├─ api                  接口
-│  │  └─ v1                接口版本
-│  │     ├─ admin          管理接口
-│  │     │  ├─ actions     动作类接口
-│  │     │  │
-│  │     │  ├─ articles.js articles 接口控制器
-│  │     │  └─ files.js    files 接口控制器
-│  │     │
-│  │     ├─ public         公开接口（无需鉴权即可调用）
-│  │     │
-│  │     └─ some-app       某个应用的接口
-│  │
-│  ├─ web                  网站
-│  │  ├─ articles.js       articles 页面控制器
-│  │  └─ files.js          files 页面控制器
-```
-
-#### 视图（views）目录结构
-
-```
-├─ views                   视图
-│  ├─ pc                   PC 端
-│  │  ├─ articles.ejs      articles 页面视图
-│  │  └─ files.ejs         files 页面视图
-│  │
-│  ├─ mobile               移动端
-│  │  ├─ articles.ejs      articles 页面视图
-│  │  └─ files.ejs         files 页面视图
+├─ controllers          控制器
+│  └─ v1                接口版本
+│     ├─ admin          管理接口
+│     │  ├─ actions     动作类接口
+│     │  │
+│     │  ├─ articles.js articles 接口控制器
+│     │  └─ files.js    files 接口控制器
+│     │
+│     ├─ public         公开接口（无需鉴权即可调用）
+│     │
+│     └─ some-app       某个应用的接口
 ```
 
 ## 扩展
@@ -255,25 +238,7 @@ module.exports = app => {
 }
 ```
 
-#### 页面控制器
-
-src/app/controllers/web/articles.js
-
-```js
-module.exports = app => {
-  const service = app.$services.articles
-
-  return class extends app.$Controller {
-    async index (ctx, next) {
-      await ctx.render('articles', {
-        items: await service.find({ offset: 0, limit: 10 })
-      })
-    }
-  }
-}
-```
-
-#### API 控制器
+#### 控制器
 
 src/app/controllers/api/v1/public/articles.js
 
@@ -290,14 +255,6 @@ module.exports = app => {
     }
   }
 }
-```
-
-#### 视图
-
-src/app/views/pc/articles.ejs
-
-```ejs
-<%- JSON.stringify(items) %>
 ```
 
 #### 路由
@@ -325,10 +282,6 @@ module.exports = app => {
 - [Node Koa2 实战](https://github.com/ikcamp/koa2-tutorial)
 - [Sequelize 文档](http://docs.sequelizejs.com)
 - [Sequelize 文档的中文版本](https://github.com/demopark/sequelize-docs-Zh-CN)
-- [EJS 官网](http://ejs.co/)
-- [EJS 官网中文版](https://ejs.bootcss.com/)
-- [EJS 中文文档](https://segmentfault.com/a/1190000004286562)
-- [EJS 模板语言使用](https://www.w3cschool.cn/weflow/weflow-ejs.html)
 - [PM2 官网](http://pm2.keymetrics.io)
 - [Node.js 最佳实践](https://github.com/i0natan/nodebestpractices/blob/master/README.chinese.md)
 
