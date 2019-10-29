@@ -14,17 +14,7 @@ const DIRS = {
   APP: 'src/app',
   MODELS: 'src/app/models',
   SERVICES: 'src/app/services',
-  CONTROLLERS: 'src/app/controllers',
-  VIEWS: 'src/app/views'
-}
-
-// EJS 模板
-const VIEWS = {
-  root: path.resolve(DIRS.VIEWS),
-  layout: false,
-  viewExt: 'ejs',
-  cache: false,
-  debug: false
+  CONTROLLERS: 'src/app/controllers'
 }
 
 // 挂载规则
@@ -45,7 +35,6 @@ const STATIC_DIR = path.resolve(DIRS.PUBLIC)
 module.exports = {
   ROOT,
   DIRS,
-  VIEWS,
   LOAD_RULES,
   STATIC_DIR
 }

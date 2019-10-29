@@ -8,7 +8,6 @@ module.exports = app => {
   // cors 一定要在 jwt 之前，否则 options 请求返回 401
   require('./cors')(app)
   require('./body')(app)
-  require('./views')(app)
   require('./is-mobile')(app)
   require('./rewrite')(app)
   require('./attachment')(app)
