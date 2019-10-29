@@ -15,7 +15,9 @@ module.exports = app => {
       include = include
         ? include.map(item => ({
           ...item,
-          model: app.$models[item.model],
+          model: typeof item.model === 'string'
+            ? app.$models[item.model]
+            : item.model,
           as: item.as,
         }))
         : null
