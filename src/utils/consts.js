@@ -3,6 +3,9 @@ const path = require('path')
 // Node.js 工作目录
 const ROOT = process.cwd()
 
+// URL 重写
+const REWRITES = []
+
 // 目录
 const DIRS = {
   SRC: 'src',
@@ -34,6 +37,7 @@ const STATIC_DIR = path.resolve(DIRS.PUBLIC)
 
 module.exports = {
   ROOT,
+  REWRITES,
   DIRS,
   LOAD_RULES,
   STATIC_DIR

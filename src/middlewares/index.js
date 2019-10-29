@@ -11,7 +11,6 @@ module.exports = app => {
   require('./is-mobile')(app)
   require('./rewrite')(app)
   require('./attachment')(app)
-  require('./redirect')(app)
 
   const middlewaresModule = require('../utils/load-module')(`${consts.DIRS.MIDDLEWARES}/index.js`)
   middlewaresModule && middlewaresModule(app)
