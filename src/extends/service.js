@@ -121,6 +121,15 @@ module.exports = app => {
     async count ({ where = {} } = {}) {
       return this.Model.count({ where })
     }
+
+    /**
+     * 递增
+     * @returns {Promise}
+     */
+    async increment ({ body, where } = {}) {
+      return this.Model.increment(body, { where })
+
+    }
   }
 
   const serviceModule = require('../utils/load-module')(`${consts.DIRS.EXTENDS}/service.js`)
