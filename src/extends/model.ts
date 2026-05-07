@@ -1,6 +1,6 @@
 import type { LessApp } from '../types'
 
-/** Creates the Sequelize instance configured by `app.$config.DB`. */
+/** 根据 `app.$config.DB` 创建 Sequelize 实例。 */
 export function createModel(app: LessApp) {
   const config = app.$config.DB
 

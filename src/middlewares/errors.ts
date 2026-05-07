@@ -1,6 +1,6 @@
 import type { LessApp } from '../types'
 
-/** Installs default error translation middleware. */
+/** 安装默认错误转换中间件。 */
 export function mountErrors(app: LessApp) {
   app.use((ctx, next) => {
     return next().catch((err: any) => {

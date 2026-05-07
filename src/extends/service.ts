@@ -59,19 +59,19 @@ function normalizeOperators(value: unknown, Op: typeof import('sequelize').Op): 
   }, {})
 }
 
-/** Creates the default service base class bound to the current app. */
+/** 创建绑定到当前应用的默认服务基类。 */
 export async function createServiceClass(app: LessApp) {
   abstract class Service implements BaseServiceContract {
-    /** Sequelize model served by this service. */
+    /** 当前服务操作的 Sequelize 模型。 */
     Model: ModelStatic<any> | null = null
 
-    /** Whether the model has an `order` column used for default sorting. */
+    /** 模型是否包含用于默认排序的 `order` 字段。 */
     hasOrder = false
 
-    /** Default Sequelize include tree. */
+    /** 默认的 Sequelize include 关联树。 */
     include?: unknown
 
-    /** Finds one record by id or a list by query options. */
+    /** 按 ID 查询单条记录，或按查询参数查询列表。 */
     async find({
       id = '',
       include = null,
@@ -116,7 +116,7 @@ export async function createServiceClass(app: LessApp) {
       })
     }
 
-    /** Finds the previous record that matches a condition. */
+    /** 查询符合条件的上一条记录。 */
     async findPrev({ id = '', attributes = null, where = {}, order = [['order', 'ASC']] }: Record<string, any> = {}) {
       this.assertModel()
       const nextWhere = id ? { ...where, id: { $gt: id } } : where
@@ -128,7 +128,7 @@ export async function createServiceClass(app: LessApp) {
       }))[0] || null
     }
 
-    /** Finds the next record that matches a condition. */
+    /** 查询符合条件的下一条记录。 */
     async findNext({ id = '', attributes = null, where = {} }: Record<string, any> = {}, order = [['order', 'DESC']]) {
       this.assertModel()
       const nextWhere = id ? { ...where, id: { $lt: id } } : where
@@ -140,7 +140,7 @@ export async function createServiceClass(app: LessApp) {
       }))[0] || null
     }
 
-    /** Deletes one or more records by id. */
+    /** 按 ID 删除一条或多条记录。 */
     async destroy({ id }: { id: string }) {
       this.assertModel()
       const where = id.includes(',')
@@ -150,7 +150,7 @@ export async function createServiceClass(app: LessApp) {
       return this.Model.destroy({ where: normalizeOperators(where, app.$Sequelize.Op) })
     }
 
-    /** Creates one record. */
+    /** 创建一条记录。 */
     async create({ body = null }: { body?: any } = {}) {
       this.assertModel()
 
@@ -165,13 +165,13 @@ export async function createServiceClass(app: LessApp) {
       return this.Model.create(body)
     }
 
-    /** Creates multiple records. */
+    /** 批量创建记录。 */
     async bulkCreate({ bodies = [] }: { bodies?: any[] } = {}) {
       this.assertModel()
       return this.Model.bulkCreate(bodies)
     }
 
-    /** Updates records by id or custom where condition. */
+    /** 按 ID 或自定义 where 条件更新记录。 */
     async update({ id, body = null, where }: { body?: any, id?: string, where?: Where } = {}) {
       this.assertModel()
       return this.Model.update(body, {
@@ -179,13 +179,13 @@ export async function createServiceClass(app: LessApp) {
       })
     }
 
-    /** Counts records that match the where condition. */
+    /** 统计符合 where 条件的记录数。 */
     async count({ where = {} }: { where?: Where } = {}) {
       this.assertModel()
       return this.Model.count({ where: normalizeOperators(where, app.$Sequelize.Op) })
     }
 
-    /** Increments one or more fields. */
+    /** 对一个或多个字段做递增操作。 */
     async increment({ body, where }: { body?: any, where?: Where } = {}) {
       this.assertModel()
       return this.Model.increment(body, { where: normalizeOperators(where, app.$Sequelize.Op) })

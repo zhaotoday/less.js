@@ -11,7 +11,7 @@ function parseJSON<T>(value: unknown, fallback: T): T {
   return JSON.parse(value) as T
 }
 
-/** Creates built-in helpers and merges optional helpers from `src/extends/helpers`. */
+/** 创建内置辅助函数，并合并 `src/extends/helpers` 中的应用扩展。 */
 export async function createHelpers(app: LessApp): Promise<LessHelpers> {
   const helpers: LessHelpers = {
     formatQuery(query) {

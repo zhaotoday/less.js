@@ -15,7 +15,7 @@ async function exists(path: string) {
   }
 }
 
-/** Resolves a module path using Less.js application conventions. */
+/** 按 Less.js 应用约定解析模块路径。 */
 export async function resolveModulePath(modulePath: string) {
   const absolute = resolve(modulePath)
   const candidates = extname(absolute)
@@ -33,7 +33,7 @@ export async function resolveModulePath(modulePath: string) {
   return null
 }
 
-/** Dynamically imports an application module and unwraps its default export. */
+/** 动态导入应用模块，并自动解包默认导出。 */
 export async function loadModule<T = unknown>(modulePath: string): Promise<T | null> {
   const resolved = await resolveModulePath(modulePath)
 

@@ -9,7 +9,7 @@ import { mountRewrite } from './rewrite'
 import { mountSend } from './send'
 import { mountStatic } from './static'
 
-/** Installs the framework middleware stack and optional application middleware. */
+/** 安装框架中间件栈，并加载可选的应用自定义中间件。 */
 export async function mountMiddlewares(app: LessApp) {
   mountStatic(app)
   mountSend(app)

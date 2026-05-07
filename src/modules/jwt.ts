@@ -1,7 +1,7 @@
 import { promisify } from 'node:util'
 import jsonwebtoken from 'jsonwebtoken'
 
-/** Promise based wrapper around jsonwebtoken. */
+/** 基于 Promise 封装 jsonwebtoken。 */
 export function createJwtModule() {
   return {
     decode: jsonwebtoken.decode,

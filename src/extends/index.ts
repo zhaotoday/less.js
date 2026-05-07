@@ -59,7 +59,7 @@ async function loadTree(app: LessApp, kind: LoadKind, dir: string): Promise<Modu
   return target
 }
 
-/** Mounts all Less.js runtime extensions onto the Koa app. */
+/** 将 Less.js 运行时扩展全部挂载到 Koa 应用实例上。 */
 export async function mountExtensions(app: LessApp) {
   app.$config = await loadConfig(app)
   app.$helpers = await createHelpers(app)

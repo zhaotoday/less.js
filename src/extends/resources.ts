@@ -3,7 +3,7 @@ import type { ResourceController } from '../types'
 
 const methods = ['get', 'post', 'put', 'del'] as const
 
-/** Registers RESTful resource routes for a controller. */
+/** 为控制器注册 RESTful 资源路由。 */
 export function resources(router: Router, path: string, controller: ResourceController) {
   methods.forEach((method) => {
     if (!controller[method])

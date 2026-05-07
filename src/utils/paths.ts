@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import type { LessPaths } from '../types'
 
-/** Creates the conventional Less.js directory map for an application root. */
+/** 根据应用根目录创建 Less.js 约定目录映射。 */
 export function createPaths(root: string): LessPaths {
   const src = resolve(root, 'src')
   const app = resolve(src, 'app')

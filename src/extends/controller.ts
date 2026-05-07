@@ -16,25 +16,25 @@ function bindPrototypeMethods(instance: object) {
   }
 }
 
-/** Creates the default controller base class bound to the current app. */
+/** 创建绑定到当前应用的默认控制器基类。 */
 export async function createControllerClass(app: LessApp) {
   const jwt = createJwtModule()
 
   abstract class Controller implements ResourceController {
-    /** Service used by the default REST handlers. */
+    /** 默认 REST 处理方法使用的服务实例。 */
     service: BaseServiceContract | null = null
 
-    /** Whether routes for this controller require JWT verification. */
+    /** 当前控制器的路由是否需要 JWT 校验。 */
     requiresAuth = false
 
-    /** JWT config override. Defaults to `app.$config.JWT`. */
+    /** JWT 配置覆盖项，默认使用 `app.$config.JWT`。 */
     jwtConfig = app.$config.JWT
 
     constructor() {
       bindPrototypeMethods(this)
     }
 
-    /** Signs payload data with the controller JWT config. */
+    /** 使用当前控制器的 JWT 配置签发载荷。 */
     sign(data: unknown) {
       const { SECRET, EXPIRES_IN } = this.jwtConfig ?? {}
 
@@ -44,7 +44,7 @@ export async function createControllerClass(app: LessApp) {
       return jwt.sign({ data }, SECRET, EXPIRES_IN ? { expiresIn: EXPIRES_IN as any } : undefined)
     }
 
-    /** Verifies the bearer token from the request Authorization header. */
+    /** 校验请求 `Authorization` 头中的 Bearer Token。 */
     verify(ctx: ParameterizedContext) {
       const { SECRET } = this.jwtConfig ?? {}
 
@@ -54,7 +54,7 @@ export async function createControllerClass(app: LessApp) {
       return jwt.verify((ctx.request.headers.authorization || '').substring(7), SECRET)
     }
 
-    /** Adds REST methods that delegate to their underscored implementation. */
+    /** 添加 REST 方法，并委托到对应的下划线内部实现。 */
     addMethods(methods: Array<'get' | 'post' | 'put' | 'del'>) {
       methods.forEach((value) => {
         Object.defineProperty(this, value, {
@@ -65,7 +65,7 @@ export async function createControllerClass(app: LessApp) {
       })
     }
 
-    /** Default GET handler for one record or a paginated list. */
+    /** 默认 GET 处理方法，用于查询单条记录或分页列表。 */
     async _get(ctx: ParameterizedContext) {
       this.assertService()
       const { include, attributes, offset, limit, group, where, order } = app.$helpers.formatQuery(ctx.request.query)
@@ -87,7 +87,7 @@ export async function createControllerClass(app: LessApp) {
       }
     }
 
-    /** Default POST handler for one or many records. */
+    /** 默认 POST 处理方法，用于创建单条或多条记录。 */
     async _post(ctx: ParameterizedContext) {
       this.assertService()
       const { bodies } = ctx.request.body as { bodies?: unknown[] }
@@ -100,7 +100,7 @@ export async function createControllerClass(app: LessApp) {
       })
     }
 
-    /** Default PUT handler for one record. */
+    /** 默认 PUT 处理方法，用于更新单条记录。 */
     async _put(ctx: ParameterizedContext) {
       this.assertService()
       await this.service.update({
@@ -110,7 +110,7 @@ export async function createControllerClass(app: LessApp) {
       ctx.send({ status: 204 })
     }
 
-    /** Default DELETE handler for one or many comma-separated ids. */
+    /** 默认 DELETE 处理方法，用于删除单个 ID 或逗号分隔的多个 ID。 */
     async _del(ctx: ParameterizedContext) {
       this.assertService()
       await this.service.destroy({ id: ctx.params.id })

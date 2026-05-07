@@ -20,7 +20,7 @@ export type {
   SendPayload,
 } from './types'
 
-/** Creates and wires a Less.js Koa application. */
+/** 创建并装配 Less.js Koa 应用。 */
 export async function createApp(options: LessAppOptions = {}) {
   const root = options.root ?? process.cwd()
   const app = new Koa() as LessApp

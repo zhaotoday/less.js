@@ -12,7 +12,7 @@ const defaultConfig: LessConfig = {
   REWRITES: [],
 }
 
-/** Loads and merges the application configuration from `src/config`. */
+/** 加载并合并 `src/config` 中的应用配置。 */
 export async function loadConfig(app: LessApp): Promise<LessConfig> {
   const configFactory = await loadModule<AppFactory<LessConfig>>(`${app.$paths.config}/index`)
   const userConfig = configFactory ? await configFactory(app) : {}

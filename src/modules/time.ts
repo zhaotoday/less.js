@@ -9,7 +9,7 @@ function normalizeTime(time?: Date | number | string) {
   return time ? new Date(time) : new Date()
 }
 
-/** Small date formatting helper used by Less applications. */
+/** Less 应用使用的轻量日期格式化辅助函数。 */
 export function createTimeModule() {
   return {
     getDate(time?: Date | number | string) {

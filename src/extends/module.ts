@@ -4,7 +4,7 @@ import { createRedisModule } from '../modules/redis'
 import { createTimeModule } from '../modules/time'
 import { createUuidModule } from '../modules/uuid'
 
-/** Creates the built-in module loader available as `app.$module`. */
+/** 创建 `app.$module` 使用的内置模块加载器。 */
 export function createModuleLoader(app: LessApp) {
   const modules = {
     jwt: () => createJwtModule(),

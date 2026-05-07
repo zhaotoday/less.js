@@ -3,19 +3,19 @@ import type Koa from 'koa'
 import type { Sequelize } from 'sequelize'
 import type * as SequelizeModule from 'sequelize'
 
-/** Constructor or factory export loaded from a user application module. */
+/** 从用户应用模块加载到的构造函数或工厂函数导出。 */
 export type AppModule<T> = T | { default: T }
 
-/** Function shape used by application config, helpers, models, services and controllers. */
+/** 应用配置、辅助函数、模型、服务和控制器使用的工厂函数形状。 */
 export type AppFactory<T> = (app: LessApp) => T | Promise<T>
 
-/** Plain object with string keys used by dynamic application trees. */
+/** 动态应用模块树使用的字符串键对象。 */
 export type ModuleTree<T = unknown> = Record<string, T | ModuleTree<T>>
 
-/** Value accepted by a rewrite rule. */
+/** URL 重写规则接受的值。 */
 export type RewriteRule = [from: string | RegExp, to: string]
 
-/** Database settings passed to Sequelize. */
+/** 传递给 Sequelize 的数据库配置。 */
 export interface DatabaseConfig {
   database: string
   username: string
@@ -23,7 +23,7 @@ export interface DatabaseConfig {
   options?: ConstructorParameters<typeof Sequelize>[3]
 }
 
-/** Runtime configuration merged from framework defaults and `src/config`. */
+/** 框架默认配置与 `src/config` 合并后的运行时配置。 */
 export interface LessConfig {
   CORS: Record<string, unknown>
   DB?: DatabaseConfig
@@ -37,7 +37,7 @@ export interface LessConfig {
   [key: string]: unknown
 }
 
-/** Resolved application directories relative to the consuming app root. */
+/** 基于消费端应用根目录解析后的目录约定。 */
 export interface LessPaths {
   root: string
   src: string
@@ -52,35 +52,35 @@ export interface LessPaths {
   controllers: string
 }
 
-/** Options used when creating a Less application. */
+/** 创建 Less 应用时可传入的选项。 */
 export interface LessAppOptions {
-  /** Application root. Defaults to `process.cwd()`. */
+  /** 应用根目录，默认使用 `process.cwd()`。 */
   root?: string
-  /** Environment name. Defaults to `process.env.NODE_ENV || "development"`. */
+  /** 环境名称，默认使用 `process.env.NODE_ENV || "development"`。 */
   env?: string
 }
 
-/** Standard response envelope emitted by `ctx.send`. */
+/** `ctx.send` 输出的标准响应结构。 */
 export interface SendPayload<T = unknown> {
   status?: number
   error?: unknown
   data?: T
 }
 
-/** Attachment helper options. */
+/** 附件下载辅助函数参数。 */
 export interface AttachmentPayload {
   fileName: string
   filePath: string
 }
 
-/** Extended Koa context helpers installed by Less middleware. */
+/** Less 中间件注入到 Koa 上下文的扩展能力。 */
 export interface LessContext {
   attachment: (payload: AttachmentPayload) => Promise<void>
   isMobile: boolean
   send: <T = unknown>(payload?: SendPayload<T>) => void
 }
 
-/** Base shape expected by resource route registration. */
+/** REST 资源路由注册所需的控制器基础形状。 */
 export interface ResourceController {
   del?: Router.Middleware
   get?: Router.Middleware
@@ -90,7 +90,7 @@ export interface ResourceController {
   verify?: (ctx: Koa.ParameterizedContext) => Promise<unknown>
 }
 
-/** Koa app enriched with Less.js runtime contracts. */
+/** 挂载 Less.js 运行时契约后的 Koa 应用实例。 */
 export interface LessApp extends Koa {
   $config: LessConfig
   $controllers: ModuleTree<ResourceController>
@@ -110,7 +110,7 @@ export interface LessApp extends Koa {
   $services: ModuleTree
 }
 
-/** Helper methods available at `app.$helpers`. */
+/** `app.$helpers` 暴露的辅助函数集合。 */
 export interface LessHelpers {
   formatQuery: (query: Record<string, unknown>) => {
     attributes: unknown
@@ -126,7 +126,7 @@ export interface LessHelpers {
   [key: string]: unknown
 }
 
-/** Shared service contract used by the base controller. */
+/** 基础控制器依赖的服务层公共契约。 */
 export interface BaseServiceContract {
   bulkCreate: (options?: { bodies?: unknown[] }) => Promise<unknown>
   count: (options?: { where?: Record<PropertyKey, unknown> }) => Promise<number>

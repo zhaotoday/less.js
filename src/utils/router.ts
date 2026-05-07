@@ -47,7 +47,7 @@ async function loadControllers(app: LessApp, router: Router, dir: string): Promi
   return target
 }
 
-/** Scans application controllers, mounts REST routes and loads optional custom routes. */
+/** 扫描应用控制器、挂载 REST 路由，并加载可选的自定义路由。 */
 export async function mountRouter(app: LessApp) {
   const router = new Router()
   app.$controllers = await loadControllers(app, router, app.$paths.controllers)

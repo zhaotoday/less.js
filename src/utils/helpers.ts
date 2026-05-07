@@ -1,14 +1,14 @@
-/** Converts a kebab-case segment to lower camel case. */
+/** 将 kebab-case 片段转换为 lowerCamelCase。 */
 export function toLowerCamelCase(value: string) {
   return value.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase())
 }
 
-/** Capitalizes the first character of a string. */
+/** 将字符串首字母转换为大写。 */
 export function capitalize(value: string) {
   return value.charAt(0).toUpperCase() + value.slice(1)
 }
 
-/** Formats controller file paths into REST route paths. */
+/** 将控制器文件路径格式化为 REST 路由路径。 */
 export function formatRouteURL(url: string) {
   const urlItems = url.split('/')
 

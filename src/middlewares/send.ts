@@ -1,6 +1,6 @@
 import type { LessApp } from '../types'
 
-/** Installs `ctx.send`, the standard Less.js response envelope helper. */
+/** 注入 `ctx.send`，用于输出 Less.js 标准响应结构。 */
 export function mountSend(app: LessApp) {
   app.use(async (ctx, next) => {
     ctx.send = ({ status = 200, error = null, data = null } = {}) => {
