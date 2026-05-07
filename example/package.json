@@ -2,9 +2,9 @@
   "name": "cmsx",
   "version": "0.0.2",
   "description": "A boilerplate for less.js.",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
   "scripts": {
-    "dev": "nodemon src/index.js --debug",
+    "dev": "node --watch src/index.mjs",
     "stop": "pm2 stop cmsx",
     "start:dev": "pm2 start processes.json --env development",
     "start:test": "pm2 start processes.json --env test",
@@ -19,25 +19,25 @@
   },
   "betterScripts": {
     "sync-models:dev": {
-      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "command": "less-sync-models",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "sync-models:test": {
-      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "command": "less-sync-models",
       "env": {
         "NODE_ENV": "test"
       }
     },
     "sync-models:beta": {
-      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "command": "less-sync-models",
       "env": {
         "NODE_ENV": "beta"
       }
     },
     "sync-models:prod": {
-      "command": "node node_modules/less.js/src/utils/sync-models.js",
+      "command": "less-sync-models",
       "env": {
         "NODE_ENV": "production"
       }
@@ -58,18 +58,12 @@
   },
   "homepage": "https://github.com/zhaotoday/less.js#readme",
   "devDependencies": {
-    "better-npm-run": "^0.1.1",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.17.3"
+    "better-npm-run": "latest",
+    "pm2": "latest"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "less.js": "^2.0.1",
-    "mp-server": "0.0.4"
+    "bcryptjs": "latest",
+    "less.js": "workspace:*",
+    "mp-server": "latest"
   }
 }
